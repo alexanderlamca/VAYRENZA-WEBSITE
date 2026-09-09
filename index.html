@@ -10,14 +10,25 @@
 <body>
 <header class="site-header">
   <a class="brand" href="#">VAYRENZA <span>GLOBAL</span></a>
-  <nav>
-    <a href="#products">PRODUCTS</a><a href="#solutions">SOLUTIONS</a><a href="#custom">CUSTOM</a>
-    <a href="#about">ABOUT</a><a href="#sustainability">SUSTAINABILITY</a><a href="#insights">INSIGHTS</a><a href="#contact">CONTACT</a>
+  <nav aria-label="Primary navigation">
+    <a href="#about">ABOUT</a>
+    <a href="#products">PRODUCTS</a>
+    <a href="#solutions">SOLUTIONS</a>
+    <a href="#custom">CUSTOM / OEM</a>
+    <a href="#sustainability">SUSTAINABILITY</a>
+    <a href="#insights">INSIGHTS</a>
+    <a href="#contact">CONTACT</a>
   </nav>
   <div class="header-actions">
-    <button class="language-selector" type="button" aria-label="Language: English">
-      <span class="flag" aria-hidden="true">🇺🇸</span><span>EN</span><span class="language-chevron" aria-hidden="true">▾</span>
-    </button>
+    <a class="search-link" href="#search" aria-label="Search">SEARCH</a>
+    <details class="language-dropdown">
+      <summary aria-label="Language: English"><span class="flag">🇺🇸</span><span>EN</span><span class="language-chevron">⌄</span></summary>
+      <div class="language-menu">
+        <a href="#" lang="en"><span>🇺🇸</span> English</a>
+        <a href="#" lang="es"><span>🇪🇸</span> Español</a>
+        <a href="#" lang="fr"><span>🇫🇷</span> Français</a>
+      </div>
+    </details>
     <a class="quote" href="#contact">REQUEST A QUOTE</a>
   </div>
 </header>
