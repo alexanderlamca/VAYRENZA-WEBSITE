@@ -438,3 +438,39 @@ body > .shell .product-card{
     transition:none !important;
   }
 }
+
+/* Multilingual preview header: prevent long translated labels from colliding with status/tools. */
+body > .shell .top{
+  grid-template-columns:auto minmax(0,1fr) auto !important;
+}
+body > .shell .preview-nav{
+  overflow:visible !important;
+}
+html[lang="fr"] body > .shell .top,
+html[lang="de"] body > .shell .top,
+html[lang="es"] body > .shell .top{
+  gap:20px !important;
+}
+html[lang="fr"] body > .shell .preview-nav,
+html[lang="de"] body > .shell .preview-nav,
+html[lang="es"] body > .shell .preview-nav{
+  gap:16px !important;
+  margin-left:18px !important;
+}
+html[lang="fr"] body > .shell .preview-nav a,
+html[lang="de"] body > .shell .preview-nav a,
+html[lang="es"] body > .shell .preview-nav a{
+  font-size:10px !important;
+  letter-spacing:.075em !important;
+}
+html[lang="fr"] body > .shell .status,
+html[lang="de"] body > .shell .status,
+html[lang="es"] body > .shell .status{
+  display:none !important;
+}
+body > .shell .tools{
+  flex:0 0 auto !important;
+  justify-self:end !important;
+  position:relative !important;
+  z-index:2 !important;
+}
