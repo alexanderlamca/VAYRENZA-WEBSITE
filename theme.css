@@ -124,6 +124,13 @@ footer p{
   color:var(--vz-footer-text);
 }
 
+/* Main-site secondary H2 scale: intentionally quieter than the Hero, while retaining editorial hierarchy. */
+body:not(:has(> .shell)) .section h2{
+  font-size:clamp(40px,3.6vw,52px);
+  line-height:1.07;
+  letter-spacing:-.03em;
+}
+
 /* Chinese typography system — Source Han Sans for headings/UI, Source Han Serif for body copy. */
 html[lang="zh-CN"] body,
 html[lang="zh-CN"] p,
