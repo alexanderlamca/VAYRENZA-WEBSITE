@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 82" preserveAspectRatio="xMinYMid meet" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 84" preserveAspectRatio="xMinYMid meet" role="img" aria-labelledby="title desc">
   <title id="title">VAYRENZA GLOBAL</title>
-  <desc id="desc">VAYRENZA custom geometric wordmark with a hookless wooden hanger-inspired A and deep-green GLOBAL descriptor positioned below the right side.</desc>
+  <desc id="desc">VAYRENZA custom geometric wordmark with a hookless wooden hanger-inspired A and a larger deep-green GLOBAL descriptor positioned beneath the right side.</desc>
   <defs>
     <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#c89554"/>
@@ -12,7 +12,7 @@
     .mark{fill:#11110f}
     .hanger{fill:none;stroke:url(#wood);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
     .hangerbar{fill:none;stroke:#9a632f;stroke-width:2.7;stroke-linecap:round}
-    .global{font-family:Inter,Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:5px;fill:#1F5A36}
+    .global{font-family:Inter,Arial,sans-serif;font-size:18px;font-weight:600;letter-spacing:4px;fill:#1F5A36}
   </style>
 
   <path class="mark" d="M5 12h11l15 39 15-39h11L36 60H26L5 12Z"/>
@@ -28,5 +28,5 @@
   <path d="M379 37h18l-5 5h-18l5-5Z" fill="#F3EFE7"/>
   <path class="mark" fill-rule="evenodd" d="M438 12h11l22 48h-12l-5-11h-22l-5 11h-12l23-48Zm5 12-8 17h16l-8-17Z"/>
 
-  <text class="global" x="316" y="78">GLOBAL</text>
+  <text class="global" x="286" y="81">GLOBAL</text>
 </svg>
