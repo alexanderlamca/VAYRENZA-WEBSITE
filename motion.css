@@ -77,9 +77,7 @@
   background:rgba(31,90,54,.055);
   border-color:rgba(31,90,54,.22);
 }
-#solutions .grid>div .solution-icon+h3{
-  margin-top:0;
-}
+#solutions .grid>div .solution-icon+h3{margin-top:0}
 
 /* Animated cards — center the complete content block and keep every line safely inside its card. */
 .cards article,
@@ -110,17 +108,32 @@
 #solutions .grid h3,
 #solutions .grid p,
 .cards h3,
-.cards p{
-  max-width:100%;
-}
+.cards p{max-width:100%}
 
-/* Slightly softer motion for editorial sections */
-#insights .insights-grid>article,
-#about .about-grid>article{
-  padding-left:18px;
-  padding-right:18px;
-  margin-left:-18px;
-  margin-right:-18px;
+/* Editorial cards — taller, calmer proportions with true horizontal + vertical centering. */
+#about .about-grid,
+#insights .insights-grid{
+  align-items:stretch;
+}
+#about .about-grid>article,
+#insights .insights-grid>article{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  box-sizing:border-box;
+  min-height:360px;
+  padding:54px 42px;
+  margin-left:0;
+  margin-right:0;
+}
+#about .about-grid>article .eyebrow,
+#insights .insights-grid>article .eyebrow{
+  margin-top:0;
+}
+#about .about-grid>article>p:last-child,
+#insights .insights-grid>article>p:last-child{
+  margin-bottom:0;
 }
 
 /* Contact CTA inherits the same restrained lift language */
@@ -139,9 +152,7 @@
 /* Header links: consistent fine underline reveal */
 .site-header nav a,
 .search-link,
-.header-actions .quote{
-  position:relative;
-}
+.header-actions .quote{position:relative}
 .search-link::after,
 .header-actions .quote::after{
   content:"";
@@ -154,9 +165,7 @@
   transition:width var(--vz-motion-base) var(--vz-motion-ease);
 }
 .search-link:hover::after,
-.header-actions .quote:hover::after{
-  width:100%;
-}
+.header-actions .quote:hover::after{width:100%}
 
 /* Keep core collection as the reference interaction, but harmonize easing */
 .cards article{
@@ -165,21 +174,15 @@
     background-color var(--vz-motion-base) var(--vz-motion-ease),
     box-shadow var(--vz-motion-base) var(--vz-motion-ease);
 }
-.cards article:hover{
-  box-shadow:0 16px 34px rgba(30,27,22,.045);
-}
-.cards article::before{
-  transition:width var(--vz-motion-base) var(--vz-motion-ease);
-}
+.cards article:hover{box-shadow:0 16px 34px rgba(30,27,22,.045)}
+.cards article::before{transition:width var(--vz-motion-base) var(--vz-motion-ease)}
 
 /* No decorative hover movement on primary editorial headings or body copy. */
 .hero h1,
 .section h2,
 .section>.intro,
 #custom>p,
-#about>.split>p{
-  transform:none;
-}
+#about>.split>p{transform:none}
 
 /* Touch devices should stay calm and predictable. */
 @media(hover:none){
@@ -202,6 +205,12 @@
   }
   #solutions .solution-icon{width:62px;height:62px;margin-bottom:18px}
   #solutions .solution-icon svg{width:33px;height:33px}
+  #about .about-grid>article,
+  #insights .insights-grid>article{min-height:330px;padding:46px 28px}
+}
+@media(max-width:700px){
+  #about .about-grid>article,
+  #insights .insights-grid>article{min-height:300px;padding:42px 24px}
 }
 
 @media(prefers-reduced-motion:reduce){
