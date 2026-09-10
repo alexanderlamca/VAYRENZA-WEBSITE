@@ -6,7 +6,8 @@
 .search-inner{max-width:1600px;margin:0 auto;padding:34px 8vw 30px}
 .search-row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;border-bottom:1px solid #6f6a62;padding-bottom:14px}
 .search-label{font:600 9px/1.2 Inter,Arial,sans-serif;letter-spacing:.22em;color:#77736c;white-space:nowrap}
-.search-input{width:100%;border:0;outline:0;background:transparent;color:#171716;font:400 clamp(24px,3vw,42px)/1.15 'Playfair Display',Georgia,serif;letter-spacing:-.02em;padding:0}
+/* Search query typography intentionally restrained across every language. */
+.search-input{width:100%;border:0;outline:0;background:transparent;color:#171716;font:400 clamp(14px,1.5vw,21px)/1.2 'Playfair Display',Georgia,serif;letter-spacing:-.01em;padding:0}
 .search-input::placeholder{color:#9a958c;opacity:1}
 .search-close{border:0;background:transparent;color:#34322e;font:500 10px/1 Inter,Arial,sans-serif;letter-spacing:.16em;cursor:pointer;padding:10px 0 10px 16px}
 .search-meta{display:flex;justify-content:space-between;gap:20px;margin-top:14px;color:#77736c;font:500 9px/1.5 Inter,Arial,sans-serif;letter-spacing:.12em}
@@ -28,7 +29,7 @@ body.search-open{overflow:hidden}
 .language-menu a{font-size:9px!important;line-height:1.25}
 
 html[lang="zh-CN"] .search-panel{background:rgba(245,242,236,.76);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-html[lang="zh-CN"] .search-input{font-size:clamp(24px,2.25vw,34px);font-weight:400;letter-spacing:-.025em;color:#4d4a45}
+html[lang="zh-CN"] .search-input{font-size:clamp(12px,1.125vw,17px);font-weight:400;letter-spacing:-.01em;color:#4d4a45}
 html[lang="zh-CN"] .search-input::placeholder{color:rgba(77,74,69,.52)}
 html[lang="zh-CN"] .search-label{font-size:9px;letter-spacing:.16em}
 html[lang="zh-CN"] .search-close{font-size:10px}
@@ -81,5 +82,5 @@ html[lang="es"] .language-dropdown summary{font-size:9px!important}
   html[lang="en"] .site-header nav a{letter-spacing:.04em!important}
 }
 
-@media(max-width:800px){.search-overlay{inset:72px 0 0}.search-inner{padding:28px 6vw 24px}.search-row{grid-template-columns:1fr auto;gap:12px}.search-label{grid-column:1/-1}.search-input{font-size:30px}.search-results{max-height:52vh}.search-result{grid-template-columns:1fr;gap:6px;padding:16px 0}html[lang="zh-CN"] .search-input{font-size:26px}}
-@media(max-width:500px){.search-inner{padding-top:24px}.search-input{font-size:26px}.search-meta{font-size:8px;letter-spacing:.08em}.search-close{font-size:9px}html[lang="zh-CN"] .search-input{font-size:24px}}
+@media(max-width:800px){.search-overlay{inset:72px 0 0}.search-inner{padding:28px 6vw 24px}.search-row{grid-template-columns:1fr auto;gap:12px}.search-label{grid-column:1/-1}.search-input{font-size:15px}.search-results{max-height:52vh}.search-result{grid-template-columns:1fr;gap:6px;padding:16px 0}html[lang="zh-CN"] .search-input{font-size:13px}}
+@media(max-width:500px){.search-inner{padding-top:24px}.search-input{font-size:13px}.search-meta{font-size:8px;letter-spacing:.08em}.search-close{font-size:9px}html[lang="zh-CN"] .search-input{font-size:12px}}
