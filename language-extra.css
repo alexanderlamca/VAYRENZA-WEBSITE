@@ -6,8 +6,8 @@ html[lang="de"] .section>*,html[lang="zh-CN"] .section>*{min-width:0}
 html[lang="de"] .hero h1,html[lang="zh-CN"] .hero h1{white-space:normal;max-width:100%}
 html[lang="de"] #custom h2,html[lang="zh-CN"] #custom h2{white-space:normal;max-width:100%}
 
-/* German copy is often longer, so keep the header compact and balanced. */
-html[lang="de"] .site-header nav{gap:14px;margin-left:16px}
+/* German copy is often longer: keep it compact, but preserve a premium breathing space after the brand. */
+html[lang="de"] .site-header nav{gap:14px;margin-left:44px}
 html[lang="de"] .site-header nav a{font-size:7.6px;letter-spacing:.075em}
 html[lang="de"] .header-actions{gap:12px}
 html[lang="de"] .header-actions .quote{font-size:7px;letter-spacing:.075em}
@@ -63,7 +63,7 @@ html[lang="zh-CN"] .section h2{line-height:1.14}
 @media(min-width:801px) and (max-width:1250px){
   html[lang="de"] .hero h1{font-size:clamp(34px,3.55vw,48px);line-height:1.06}
   html[lang="de"] .site-header{gap:16px;padding-left:3.2vw;padding-right:3.2vw}
-  html[lang="de"] .site-header nav{gap:10px;margin-left:10px}
+  html[lang="de"] .site-header nav{gap:10px;margin-left:22px}
   html[lang="de"] .site-header nav a{font-size:7.2px;letter-spacing:.055em}
   html[lang="zh-CN"] .site-header{gap:18px;padding-left:3.5vw;padding-right:3.5vw}
   html[lang="zh-CN"] .site-header nav{gap:14px;margin-left:12px}
