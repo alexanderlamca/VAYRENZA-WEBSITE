@@ -1,0 +1,97 @@
+/* VAYRENZA EDITORIAL LAYOUT REFINEMENT — Custom + About */
+
+/* Custom Development: tighter, calmer editorial composition */
+#custom.section{
+  min-height:auto;
+  padding-top:104px;
+  padding-bottom:104px;
+  grid-template-columns:minmax(0,1.45fr) minmax(360px,.75fr);
+  gap:7vw;
+  align-items:center;
+}
+#custom>div{min-width:0;max-width:900px}
+#custom .eyebrow{margin-bottom:24px}
+#custom h2{
+  margin-bottom:0;
+  max-width:900px;
+  font-size:clamp(44px,3.65vw,58px);
+  line-height:1.04;
+  letter-spacing:-.035em;
+  white-space:nowrap;
+}
+#custom>p{
+  width:100%;
+  max-width:470px;
+  justify-self:end;
+  font-size:16px;
+  line-height:1.72;
+}
+
+/* About: true two-column editorial opening, followed by a balanced 2-column mission/vision row */
+#about.section{
+  padding-top:104px;
+  padding-bottom:108px;
+}
+#about>.split{
+  grid-template-columns:minmax(0,.95fr) minmax(420px,1.05fr);
+  gap:8vw;
+  align-items:start;
+}
+#about>.split>div{min-width:0}
+#about>.split .eyebrow{margin-bottom:24px}
+#about>.split h2{
+  max-width:none;
+  font-size:clamp(44px,3.55vw,56px);
+  line-height:1.06;
+  letter-spacing:-.034em;
+  white-space:nowrap;
+}
+#about .split>p{
+  width:100%;
+  max-width:610px;
+  justify-self:end;
+  font-size:16px;
+  line-height:1.74;
+}
+#about .about-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:64px;
+  width:100%;
+  max-width:1180px;
+  margin-top:72px;
+}
+#about .about-grid article{
+  min-width:0;
+  padding-top:26px;
+}
+#about .about-grid h3{
+  max-width:430px;
+  font-size:clamp(25px,1.8vw,30px);
+  line-height:1.18;
+  margin-bottom:16px;
+}
+#about .about-grid p:not(.eyebrow){
+  max-width:470px;
+  font-size:15px;
+  line-height:1.72;
+}
+
+@media(max-width:1200px){
+  #custom.section{
+    grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+    gap:5vw;
+  }
+  #custom h2{white-space:normal;font-size:clamp(42px,4.2vw,52px)}
+  #about>.split{grid-template-columns:minmax(0,1fr) minmax(360px,1fr);gap:6vw}
+  #about>.split h2{font-size:clamp(42px,4.1vw,52px)}
+  #about .about-grid{gap:44px}
+}
+
+@media(max-width:800px){
+  #custom.section,#about.section{padding-top:78px;padding-bottom:82px}
+  #custom.section,#about>.split{grid-template-columns:1fr;gap:30px}
+  #custom h2,#about>.split h2{white-space:normal;font-size:clamp(38px,9vw,48px)}
+  #custom>p,#about .split>p{max-width:680px;justify-self:start}
+  #about .about-grid{grid-template-columns:1fr;gap:28px;margin-top:52px}
+  #about .about-grid h3,#about .about-grid p:not(.eyebrow){max-width:680px}
+}
