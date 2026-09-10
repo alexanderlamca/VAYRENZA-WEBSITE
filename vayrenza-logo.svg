@@ -1,10 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" role="img" aria-labelledby="title desc">
   <title id="title">VAYRENZA GLOBAL</title>
-  <desc id="desc">VAYRENZA wordmark with a smaller solid deep-green GLOBAL label.</desc>
+  <desc id="desc">VAYRENZA wordmark with the A represented by a refined wooden garment hanger and a smaller deep-green GLOBAL label.</desc>
+  <defs>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#c9914f"/>
+      <stop offset="0.5" stop-color="#a96f34"/>
+      <stop offset="1" stop-color="#8a5628"/>
+    </linearGradient>
+  </defs>
   <style>
     .main{font-family:Inter,Arial,sans-serif;font-size:42px;font-weight:600;letter-spacing:8px;fill:#11110f}
     .global{font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:600;letter-spacing:5px;fill:#1F5A36}
+    .hanger-wood{fill:none;stroke:url(#wood);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+    .hanger-bar{fill:none;stroke:#9a622f;stroke-width:2.4;stroke-linecap:round}
+    .hanger-hook{fill:none;stroke:#6d675f;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
   </style>
-  <text class="main" x="4" y="50">VAYRENZA</text>
+
+  <text class="main" x="4" y="50">V</text>
+
+  <!-- Stylized wooden hanger as the second letter A -->
+  <g aria-hidden="true" transform="translate(53 5)">
+    <path class="hanger-hook" d="M20 13c0-7 11-8 12-1 .8 5-4 7-7 9-2 1-3 3-3 5"/>
+    <path class="hanger-wood" d="M22 24 4 47M22 24l18 23"/>
+    <path class="hanger-bar" d="M8 43h28"/>
+  </g>
+
+  <text class="main" x="101" y="50">YRENZA</text>
   <text class="global" x="292" y="49">GLOBAL</text>
 </svg>
