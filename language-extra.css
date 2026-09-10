@@ -55,7 +55,17 @@ html[lang="zh-CN"] .eyebrow,
 html[lang="zh-CN"] nav a,
 html[lang="zh-CN"] .header-actions,
 html[lang="zh-CN"] .cards span{letter-spacing:.11em}
-html[lang="zh-CN"] .site-header nav{gap:20px;margin-left:24px}
+
+/* Chinese desktop header — let the primary navigation occupy and distribute across the full center zone. */
+html[lang="zh-CN"] .site-header nav{
+  flex:1 1 auto;
+  justify-content:space-between;
+  gap:0;
+  margin-left:58px;
+  margin-right:54px;
+  min-width:0;
+}
+html[lang="zh-CN"] .site-header nav a{flex:0 0 auto}
 html[lang="zh-CN"] .hero h1{line-height:1.12}
 html[lang="zh-CN"] .section h2{line-height:1.14}
 
@@ -64,8 +74,14 @@ html[lang="zh-CN"] .section h2{line-height:1.14}
   html[lang="de"] .site-header{gap:13px;padding-left:3vw;padding-right:3vw}
   html[lang="de"] .site-header nav{gap:6px;margin-left:22px}
   html[lang="de"] .site-header nav a{letter-spacing:.025em!important}
-  html[lang="zh-CN"] .site-header{gap:18px;padding-left:3.5vw;padding-right:3.5vw}
-  html[lang="zh-CN"] .site-header nav{gap:14px;margin-left:12px}
+  html[lang="zh-CN"] .site-header{gap:14px;padding-left:3.2vw;padding-right:3.2vw}
+  html[lang="zh-CN"] .site-header nav{
+    flex:1 1 auto;
+    justify-content:space-between;
+    gap:0;
+    margin-left:24px;
+    margin-right:24px;
+  }
 }
 
 @media(max-width:800px){
