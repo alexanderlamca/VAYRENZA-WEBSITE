@@ -124,12 +124,18 @@ footer p{
   color:var(--vz-footer-text);
 }
 
-/* Unlisted 2026 product preview — unified card motion system. */
+/* Unlisted 2026 product preview — one identical hover system for every SKU card. */
 body > .shell #collections .card{
   background:transparent !important;
-  transform:translateY(0) !important;
+  transform:none !important;
   opacity:1 !important;
-  transition:transform .28s ease,background-color .28s ease,opacity .28s ease !important;
+  transition:background-color .28s ease,opacity .28s ease !important;
+}
+body > .shell #collections .card .sku,
+body > .shell #collections .card h3,
+body > .shell #collections .card .state{
+  transform:translateY(0) !important;
+  transition:transform .28s ease !important;
 }
 body > .shell #collections .card::after{
   top:0 !important;
@@ -141,9 +147,14 @@ body > .shell #collections .card::after{
 }
 @media (hover:hover) and (pointer:fine){
   body > .shell #collections .card:hover{
-    transform:translateY(3px) !important;
     background-color:rgba(255,255,255,.26) !important;
     opacity:1 !important;
+    transform:none !important;
+  }
+  body > .shell #collections .card:hover .sku,
+  body > .shell #collections .card:hover h3,
+  body > .shell #collections .card:hover .state{
+    transform:translateY(3px) !important;
   }
   body > .shell #collections .card:hover::after{
     transform:scaleX(1) !important;
@@ -151,6 +162,9 @@ body > .shell #collections .card::after{
 }
 @media (prefers-reduced-motion:reduce){
   body > .shell #collections .card,
+  body > .shell #collections .card .sku,
+  body > .shell #collections .card h3,
+  body > .shell #collections .card .state,
   body > .shell #collections .card::after{
     transition:none !important;
   }
