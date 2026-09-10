@@ -2,9 +2,9 @@
   const endpoint = 'https://formsubmit.co/ajax/info@vayrenza.com';
 
   const copy = {
-    en:{kicker:'B2B INQUIRY',title:'Tell us what you need.',subtitle:'Share your project requirements and our team can review the details before following up with you.',close:'CLOSE',name:'NAME',company:'COMPANY',country:'COUNTRY / REGION',email:'EMAIL',phone:'PHONE / WHATSAPP',product:'PRODUCT REQUIREMENT',quantity:'ESTIMATED QUANTITY',custom:'CUSTOMIZATION REQUIREMENT',message:'MESSAGE',select:'Select an option',productOptions:['Suit & Shirt Hangers','Trouser & Skirt Hangers','Premium & Specialty Hangers','OEM / ODM Development','Hospitality Program','Wholesale / Distribution','Other'],customOptions:['No customization required','Logo / branding','Custom dimensions','Custom material / finish','Custom packaging','Full OEM / ODM development','Not sure yet'],note:'Required fields help us prepare a more relevant response. Your inquiry will be sent securely for review.',submit:'SUBMIT REQUEST',sending:'SENDING…',successTitle:'Thank you.',success:'Your request has been submitted successfully. Our team will review the details and follow up with you.',errorTitle:'Unable to submit.',error:'Please try again, or contact info@vayrenza.com directly.'},
-    es:{kicker:'CONSULTA B2B',title:'Cuéntenos qué necesita.',subtitle:'Comparta los requisitos de su proyecto para que nuestro equipo pueda revisarlos antes de ponerse en contacto con usted.',close:'CERRAR',name:'NOMBRE',company:'EMPRESA',country:'PAÍS / REGIÓN',email:'CORREO ELECTRÓNICO',phone:'TELÉFONO / WHATSAPP',product:'NECESIDAD DE PRODUCTO',quantity:'CANTIDAD ESTIMADA',custom:'REQUISITOS DE PERSONALIZACIÓN',message:'MENSAJE',select:'Seleccione una opción',productOptions:['Perchas para traje y camisa','Perchas para pantalón y falda','Perchas premium y especiales','Desarrollo OEM / ODM','Programa de hostelería','Mayorista / distribución','Otro'],customOptions:['Sin personalización','Logotipo / branding','Dimensiones personalizadas','Material / acabado personalizado','Embalaje personalizado','Desarrollo OEM / ODM completo','Aún no estoy seguro'],note:'Los campos obligatorios nos ayudan a preparar una respuesta más relevante. Su consulta se enviará de forma segura para su revisión.',submit:'ENVIAR SOLICITUD',sending:'ENVIANDO…',successTitle:'Gracias.',success:'Su solicitud se ha enviado correctamente. Nuestro equipo revisará los detalles y se pondrá en contacto con usted.',errorTitle:'No se pudo enviar.',error:'Inténtelo de nuevo o contacte directamente con info@vayrenza.com.'},
-    fr:{kicker:'DEMANDE B2B',title:'Dites-nous ce dont vous avez besoin.',subtitle:'Partagez les exigences de votre projet afin que notre équipe puisse les examiner avant de vous recontacter.',close:'FERMER',name:'NOM',company:'ENTREPRISE',country:'PAYS / RÉGION',email:'E-MAIL',phone:'TÉLÉPHONE / WHATSAPP',product:'BESOIN PRODUIT',quantity:'QUANTITÉ ESTIMÉE',custom:'BESOIN DE PERSONNALISATION',message:'MESSAGE',select:'Sélectionnez une option',productOptions:['Cintres costume & chemise','Cintres pantalon & jupe','Cintres premium & spéciaux','Développement OEM / ODM','Programme hôtellerie','Grossiste / distribution','Autre'],customOptions:['Aucune personnalisation','Logo / branding','Dimensions personnalisées','Matériau / finition personnalisé','Emballage personnalisé','Développement OEM / ODM complet','Pas encore certain'],note:'Les champs obligatoires nous aident à préparer une réponse plus pertinente. Votre demande sera envoyée de manière sécurisée pour examen.',submit:'ENVOYER LA DEMANDE',sending:'ENVOI…',successTitle:'Merci.',success:'Votre demande a bien été envoyée. Notre équipe examinera les détails et vous recontactera.',errorTitle:'Envoi impossible.',error:'Veuillez réessayer ou contacter directement info@vayrenza.com.'}
+    en:{kicker:'B2B INQUIRY',title:'Tell us what you need.',subtitle:'Share your project requirements and our team can review the details before following up with you.',close:'CLOSE',name:'NAME',company:'COMPANY',country:'COUNTRY / REGION',email:'EMAIL',phone:'PHONE / WHATSAPP',product:'PRODUCT REQUIREMENT',quantity:'ESTIMATED QUANTITY',custom:'CUSTOMIZATION REQUIREMENT',message:'MESSAGE',select:'Select an option',productOptions:['Suit & Shirt Hangers','Trouser & Skirt Hangers','Premium & Specialty Hangers','OEM / ODM Development','Hospitality Program','Wholesale / Distribution','Other'],customOptions:['No customization required','Logo / branding','Custom dimensions','Custom material / finish','Custom packaging','Full OEM / ODM development','Not sure yet'],note:'Required fields help us prepare a more relevant response. Your inquiry will be sent securely for review.',submit:'SUBMIT REQUEST',sending:'SENDING…',successTitle:'Thank you.',success:'Your request has been submitted successfully. Our team will review the details and follow up with you.',errorTitle:'Unable to submit.',error:'Please try again, or contact info@vayrenza.com directly.',required:'Please complete this required field.',emailInvalid:'Please enter a valid email address.'},
+    es:{kicker:'CONSULTA B2B',title:'Cuéntenos qué necesita.',subtitle:'Comparta los requisitos de su proyecto para que nuestro equipo pueda revisarlos antes de ponerse en contacto con usted.',close:'CERRAR',name:'NOMBRE',company:'EMPRESA',country:'PAÍS / REGIÓN',email:'CORREO ELECTRÓNICO',phone:'TELÉFONO / WHATSAPP',product:'NECESIDAD DE PRODUCTO',quantity:'CANTIDAD ESTIMADA',custom:'REQUISITOS DE PERSONALIZACIÓN',message:'MENSAJE',select:'Seleccione una opción',productOptions:['Perchas para traje y camisa','Perchas para pantalón y falda','Perchas premium y especiales','Desarrollo OEM / ODM','Programa de hostelería','Mayorista / distribución','Otro'],customOptions:['Sin personalización','Logotipo / branding','Dimensiones personalizadas','Material / acabado personalizado','Embalaje personalizado','Desarrollo OEM / ODM completo','Aún no estoy seguro'],note:'Los campos obligatorios nos ayudan a preparar una respuesta más relevante. Su consulta se enviará de forma segura para su revisión.',submit:'ENVIAR SOLICITUD',sending:'ENVIANDO…',successTitle:'Gracias.',success:'Su solicitud se ha enviado correctamente. Nuestro equipo revisará los detalles y se pondrá en contacto con usted.',errorTitle:'No se pudo enviar.',error:'Inténtelo de nuevo o contacte directamente con info@vayrenza.com.',required:'Complete este campo obligatorio.',emailInvalid:'Introduzca una dirección de correo electrónico válida.'},
+    fr:{kicker:'DEMANDE B2B',title:'Dites-nous ce dont vous avez besoin.',subtitle:'Partagez les exigences de votre projet afin que notre équipe puisse les examiner avant de vous recontacter.',close:'FERMER',name:'NOM',company:'ENTREPRISE',country:'PAYS / RÉGION',email:'E-MAIL',phone:'TÉLÉPHONE / WHATSAPP',product:'BESOIN PRODUIT',quantity:'QUANTITÉ ESTIMÉE',custom:'BESOIN DE PERSONNALISATION',message:'MESSAGE',select:'Sélectionnez une option',productOptions:['Cintres costume & chemise','Cintres pantalon & jupe','Cintres premium & spéciaux','Développement OEM / ODM','Programme hôtellerie','Grossiste / distribution','Autre'],customOptions:['Aucune personnalisation','Logo / branding','Dimensions personnalisées','Matériau / finition personnalisé','Emballage personnalisé','Développement OEM / ODM complet','Pas encore certain'],note:'Les champs obligatoires nous aident à préparer une réponse plus pertinente. Votre demande sera envoyée de manière sécurisée pour examen.',submit:'ENVOYER LA DEMANDE',sending:'ENVOI…',successTitle:'Merci.',success:'Votre demande a bien été envoyée. Notre équipe examinera les détails et vous recontactera.',errorTitle:'Envoi impossible.',error:'Veuillez réessayer ou contacter directement info@vayrenza.com.',required:'Veuillez renseigner ce champ obligatoire.',emailInvalid:'Veuillez saisir une adresse e-mail valide.'}
   };
 
   const overlay = document.createElement('div');
@@ -37,13 +37,13 @@
     </div>`;
   document.body.appendChild(overlay);
 
-  const dialog = overlay.querySelector('.quote-dialog');
   const form = overlay.querySelector('.quote-form');
   const closeBtn = overlay.querySelector('.quote-close');
   const submitBtn = overlay.querySelector('.quote-submit');
   const status = overlay.querySelector('.quote-status');
   const productSelect = overlay.querySelector('#q-product');
   const customSelect = overlay.querySelector('#q-custom');
+  const fields = Array.from(form.querySelectorAll('input:not([type="hidden"]):not(.quote-honeypot), select, textarea'));
   let lastFocus = null;
 
   function currentLang(){
@@ -67,7 +67,29 @@
     customSelect.innerHTML = optionMarkup(c.customOptions,c.select);
     overlay.querySelector('.quote-note').textContent = c.note;
     submitBtn.textContent = c.submit;
+    fields.forEach(field => field.setCustomValidity(''));
   }
+
+  function setLocalizedValidity(field){
+    const c = copy[currentLang()];
+    field.setCustomValidity('');
+    if(field.validity.valueMissing){
+      field.setCustomValidity(c.required);
+    }else if(field.type === 'email' && field.validity.typeMismatch){
+      field.setCustomValidity(c.emailInvalid);
+    }
+  }
+
+  fields.forEach(field => {
+    field.addEventListener('invalid', () => setLocalizedValidity(field));
+    field.addEventListener('input', () => {
+      field.setCustomValidity('');
+      if(field.type === 'email' && field.value && field.validity.typeMismatch){
+        field.setCustomValidity(copy[currentLang()].emailInvalid);
+      }
+    });
+    field.addEventListener('change', () => field.setCustomValidity(''));
+  });
 
   function openQuote(e){
     if(e) e.preventDefault();
@@ -100,6 +122,7 @@
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const c = copy[currentLang()];
+    fields.forEach(setLocalizedValidity);
     if(!form.reportValidity()) return;
     submitBtn.disabled = true;
     submitBtn.textContent = c.sending;
