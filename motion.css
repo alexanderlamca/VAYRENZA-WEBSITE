@@ -1,0 +1,136 @@
+/* VAYRENZA MOTION SYSTEM — restrained luxury interaction language */
+:root{
+  --vz-motion-fast:220ms;
+  --vz-motion-base:360ms;
+  --vz-motion-ease:cubic-bezier(.2,.7,.2,1);
+  --vz-motion-lift:-4px;
+  --vz-motion-bg:rgba(255,255,255,.24);
+  --vz-motion-line:rgba(23,23,22,.72);
+}
+
+/* Shared interactive card treatment */
+#solutions .grid>div,
+#insights .insights-grid>article,
+#about .about-grid>article{
+  position:relative;
+  transition:
+    transform var(--vz-motion-base) var(--vz-motion-ease),
+    background-color var(--vz-motion-base) var(--vz-motion-ease),
+    box-shadow var(--vz-motion-base) var(--vz-motion-ease),
+    border-color var(--vz-motion-base) var(--vz-motion-ease);
+}
+
+#solutions .grid>div::before,
+#insights .insights-grid>article::before,
+#about .about-grid>article::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:-1px;
+  width:0;
+  height:1px;
+  background:var(--vz-motion-line);
+  transition:width var(--vz-motion-base) var(--vz-motion-ease);
+}
+
+#solutions .grid>div:hover,
+#insights .insights-grid>article:hover,
+#about .about-grid>article:hover{
+  transform:translateY(var(--vz-motion-lift));
+  background:var(--vz-motion-bg);
+  box-shadow:0 16px 34px rgba(30,27,22,.035);
+}
+
+#solutions .grid>div:hover::before,
+#insights .insights-grid>article:hover::before,
+#about .about-grid>article:hover::before{
+  width:100%;
+}
+
+/* Slightly softer motion for editorial sections */
+#insights .insights-grid>article,
+#about .about-grid>article{
+  padding-left:14px;
+  padding-right:14px;
+  margin-left:-14px;
+  margin-right:-14px;
+}
+
+/* Contact CTA inherits the same restrained lift language */
+#contact .btn.primary{
+  transition:
+    transform var(--vz-motion-fast) var(--vz-motion-ease),
+    background-color var(--vz-motion-fast) var(--vz-motion-ease),
+    border-color var(--vz-motion-fast) var(--vz-motion-ease),
+    box-shadow var(--vz-motion-fast) var(--vz-motion-ease);
+}
+#contact .btn.primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(30,27,22,.06);
+}
+
+/* Header links: consistent fine underline reveal */
+.site-header nav a,
+.search-link,
+.header-actions .quote{
+  position:relative;
+}
+.search-link::after,
+.header-actions .quote::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-7px;
+  width:0;
+  height:1px;
+  background:#171716;
+  transition:width var(--vz-motion-base) var(--vz-motion-ease);
+}
+.search-link:hover::after,
+.header-actions .quote:hover::after{
+  width:100%;
+}
+
+/* Keep core collection as the reference interaction, but harmonize easing */
+.cards article{
+  transition:
+    transform var(--vz-motion-base) var(--vz-motion-ease),
+    background-color var(--vz-motion-base) var(--vz-motion-ease),
+    box-shadow var(--vz-motion-base) var(--vz-motion-ease);
+}
+.cards article:hover{
+  box-shadow:0 16px 34px rgba(30,27,22,.045);
+}
+.cards article::before{
+  transition:width var(--vz-motion-base) var(--vz-motion-ease);
+}
+
+/* No decorative hover movement on primary editorial headings or body copy. */
+.hero h1,
+.section h2,
+.section>.intro,
+#custom>p,
+#about>.split>p{
+  transform:none;
+}
+
+/* Touch devices should stay calm and predictable. */
+@media(hover:none){
+  #solutions .grid>div:hover,
+  #insights .insights-grid>article:hover,
+  #about .about-grid>article:hover,
+  .cards article:hover,
+  #contact .btn.primary:hover{
+    transform:none;
+    box-shadow:none;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+  }
+}
