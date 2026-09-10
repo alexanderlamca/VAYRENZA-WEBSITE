@@ -29,6 +29,13 @@ body.search-open{overflow:hidden}
 /* Secondary language menu — enlarged one step. */
 .language-menu a{font-size:9px!important;line-height:1.25}
 
+/* English: preserve the unified type size, tighten tracking and item spacing to prevent overflow. */
+html[lang="en"] .site-header nav{gap:12px;margin-left:20px}
+html[lang="en"] .site-header nav a{letter-spacing:.065em!important}
+html[lang="en"] .header-actions{gap:12px}
+html[lang="en"] .header-actions .search-link,
+html[lang="en"] .header-actions .quote{letter-spacing:.065em!important}
+
 /* MULTILINGUAL LAYOUT GUARD — longer Spanish/French copy must never overflow. Keep the global font size; tighten tracking and item spacing only. */
 html[lang="es"],html[lang="fr"]{overflow-x:hidden}
 html[lang="es"] .hero-copy,html[lang="fr"] .hero-copy,
@@ -46,6 +53,8 @@ html[lang="es"] .header-actions .quote,html[lang="fr"] .header-actions .quote{le
   html[lang="es"] .site-header,html[lang="fr"] .site-header{gap:14px;padding-left:3.2vw;padding-right:3.2vw}
   html[lang="es"] .site-header nav,html[lang="fr"] .site-header nav{gap:7px;margin-left:8px}
   html[lang="es"] .site-header nav a,html[lang="fr"] .site-header nav a{letter-spacing:.035em!important}
+  html[lang="en"] .site-header nav{gap:8px;margin-left:10px}
+  html[lang="en"] .site-header nav a{letter-spacing:.04em!important}
   .site-header nav a{font-size:10px!important}
   .header-actions .search-link,.header-actions .quote{font-size:9px!important}
   .language-dropdown summary{font-size:9px!important}
