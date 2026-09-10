@@ -124,6 +124,41 @@ footer p{
   color:var(--vz-footer-text);
 }
 
+/* Chinese typography system — Source Han Sans for headings/UI, Source Han Serif for body copy. */
+html[lang="zh-CN"] body,
+html[lang="zh-CN"] p,
+html[lang="zh-CN"] .intro,
+html[lang="zh-CN"] .lead,
+html[lang="zh-CN"] .series-copy,
+html[lang="zh-CN"] .note p{
+  font-family:"Source Han Serif SC","Noto Serif CJK SC","Noto Serif SC","Songti SC","STSong",serif !important;
+}
+html[lang="zh-CN"] h1,
+html[lang="zh-CN"] h2,
+html[lang="zh-CN"] h3,
+html[lang="zh-CN"] h4,
+html[lang="zh-CN"] h5,
+html[lang="zh-CN"] h6,
+html[lang="zh-CN"] .eyebrow,
+html[lang="zh-CN"] .brand,
+html[lang="zh-CN"] nav,
+html[lang="zh-CN"] .preview-nav,
+html[lang="zh-CN"] .tools,
+html[lang="zh-CN"] .summary,
+html[lang="zh-CN"] .series-meta,
+html[lang="zh-CN"] .sku,
+html[lang="zh-CN"] .state,
+html[lang="zh-CN"] button,
+html[lang="zh-CN"] select,
+html[lang="zh-CN"] summary{
+  font-family:"Source Han Sans SC","Noto Sans CJK SC","Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif !important;
+}
+html[lang="zh-CN"] h1,
+html[lang="zh-CN"] h2,
+html[lang="zh-CN"] h3{
+  letter-spacing:-.02em;
+}
+
 /* Unlisted 2026 product preview — every SKU card owns its own line and motion. */
 body > .shell #collections .grid{
   border-top:0 !important;
