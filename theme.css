@@ -182,19 +182,28 @@ body > .shell #collections .card::after{
   }
 }
 
-/* Unlisted 2026 product preview — refined numeral system only. */
+/* Unlisted 2026 product preview — premium numeral system. */
 body > .shell .hero h1{
   font-variant-numeric:lining-nums proportional-nums !important;
   font-feature-settings:"lnum" 1,"pnum" 1 !important;
   font-kerning:normal !important;
   font-optical-sizing:auto;
+  text-rendering:geometricPrecision;
+}
+body > .shell .hero h1::first-line{
+  letter-spacing:-.045em;
 }
 body > .shell .summary strong{
-  font-size:27px !important;
+  display:block !important;
+  font-family:Inter,Arial,sans-serif !important;
+  font-size:30px !important;
+  font-weight:500 !important;
   line-height:1 !important;
-  letter-spacing:-.028em !important;
-  font-variant-numeric:lining-nums proportional-nums !important;
-  font-feature-settings:"lnum" 1,"pnum" 1 !important;
+  letter-spacing:-.055em !important;
+  font-variant-numeric:lining-nums tabular-nums !important;
+  font-feature-settings:"lnum" 1,"tnum" 1 !important;
   font-kerning:normal !important;
   font-optical-sizing:auto;
+  text-rendering:geometricPrecision;
+  margin-bottom:8px !important;
 }
