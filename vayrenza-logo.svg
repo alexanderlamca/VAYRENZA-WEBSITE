@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 76" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 82" preserveAspectRatio="xMinYMid meet" role="img" aria-labelledby="title desc">
   <title id="title">VAYRENZA GLOBAL</title>
-  <desc id="desc">VAYRENZA geometric wordmark with a hookless wooden hanger-inspired A and separate deep-green GLOBAL label.</desc>
+  <desc id="desc">VAYRENZA custom geometric wordmark with a hookless wooden hanger-inspired A and deep-green GLOBAL descriptor positioned below the right side.</desc>
   <defs>
     <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#c89554"/>
@@ -12,23 +12,21 @@
     .mark{fill:#11110f}
     .hanger{fill:none;stroke:url(#wood);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
     .hangerbar{fill:none;stroke:#9a632f;stroke-width:2.7;stroke-linecap:round}
-    .global{font-family:Inter,Arial,sans-serif;font-size:14px;font-weight:600;letter-spacing:4.8px;fill:#1F5A36}
+    .global{font-family:Inter,Arial,sans-serif;font-size:13px;font-weight:600;letter-spacing:5px;fill:#1F5A36}
   </style>
 
-  <path class="mark" d="M5 14h11l15 39 15-39h11L36 62H26L5 14Z"/>
-
-  <g aria-hidden="true" transform="translate(66 8)">
+  <path class="mark" d="M5 12h11l15 39 15-39h11L36 60H26L5 12Z"/>
+  <g aria-hidden="true" transform="translate(66 6)">
     <path class="hanger" d="M24 8 3 52M24 8l21 44"/>
     <path class="hangerbar" d="M9 42h30"/>
   </g>
+  <path class="mark" d="M119 12h12l14 19 14-19h12l-21 29v19h-10V41l-21-29Z"/>
+  <path class="mark" fill-rule="evenodd" d="M181 12h28c13 0 21 7 21 18 0 8-4 14-12 17l15 13h-15l-13-12h-13v12h-11V12Zm11 9v18h16c7 0 11-3 11-9s-4-9-11-9h-16Z"/>
+  <path class="mark" d="M243 12h43v9h-32v10h28v9h-28v11h33v9h-44V12Z"/>
+  <path class="mark" d="M299 12h10l29 31V12h11v48h-10l-29-31v31h-11V12Z"/>
+  <path class="mark" d="M362 12h45v9l-29 30h30v9h-46v-9l29-30h-29v-9Z"/>
+  <path d="M379 37h18l-5 5h-18l5-5Z" fill="#F3EFE7"/>
+  <path class="mark" fill-rule="evenodd" d="M438 12h11l22 48h-12l-5-11h-22l-5 11h-12l23-48Zm5 12-8 17h16l-8-17Z"/>
 
-  <path class="mark" d="M119 14h12l14 19 14-19h12l-21 29v19h-10V43l-21-29Z"/>
-  <path class="mark" fill-rule="evenodd" d="M181 14h28c13 0 21 7 21 18 0 8-4 14-12 17l15 13h-15l-13-12h-13v12h-11V14Zm11 9v18h16c7 0 11-3 11-9s-4-9-11-9h-16Z"/>
-  <path class="mark" d="M243 14h43v9h-32v10h28v9h-28v11h33v9h-44V14Z"/>
-  <path class="mark" d="M299 14h10l29 31V14h11v48h-10l-29-31v31h-11V14Z"/>
-  <path class="mark" d="M362 14h45v9l-29 30h30v9h-46v-9l29-30h-29v-9Z"/>
-  <path d="M379 39h18l-5 5h-18l5-5Z" fill="#f3efe7"/>
-  <path class="mark" fill-rule="evenodd" d="M438 14h11l22 48h-12l-5-11h-22l-5 11h-12l23-48Zm5 12-8 17h16l-8-17Z"/>
-
-  <text class="global" x="496" y="52">GLOBAL</text>
+  <text class="global" x="316" y="78">GLOBAL</text>
 </svg>
