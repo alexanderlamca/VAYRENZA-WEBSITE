@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<title>VAYRENZA GLOBAL — 2026 Product Architecture Preview</title>
+<meta name="description" content="Unlisted working preview of the VAYRENZA 2026 Core Collection architecture.">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="theme.css">
+<style>
+:root{--preview-line:rgba(17,17,15,.12);--preview-muted:rgba(17,17,15,.58)}
+*{box-sizing:border-box}
+body{margin:0;background:#f3f0e9;color:#11110f;font-family:Inter,Arial,sans-serif}
+.preview-shell{max-width:1440px;margin:0 auto;padding:0 54px 96px}
+.preview-topbar{display:flex;align-items:center;justify-content:space-between;padding:28px 0;border-bottom:1px solid var(--preview-line)}
+.preview-brand{font-size:17px;letter-spacing:.18em;font-weight:600;text-decoration:none;color:inherit}.preview-brand span{font-weight:400}
+.preview-status{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--preview-muted)}
+.preview-hero{padding:96px 0 74px;max-width:980px}
+.eyebrow{font-size:9px;letter-spacing:.28em;text-transform:uppercase;margin:0 0 20px;color:var(--preview-muted)}
+.preview-hero h1,.series-head h2{font-family:"Playfair Display",Georgia,serif;font-weight:400;letter-spacing:-.03em}
+.preview-hero h1{font-size:clamp(48px,6vw,82px);line-height:.98;margin:0 0 26px;max-width:900px}
+.preview-hero p{font-size:17px;line-height:1.8;max-width:760px;margin:0;color:var(--preview-muted)}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--preview-line);border-bottom:1px solid var(--preview-line);margin-bottom:88px}
+.summary div{padding:28px 24px 26px;border-right:1px solid var(--preview-line)}.summary div:first-child{padding-left:0}.summary div:last-child{border-right:0}
+.summary strong{display:block;font-family:"Playfair Display",Georgia,serif;font-size:34px;font-weight:400;margin-bottom:6px}.summary span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--preview-muted)}
+.series{padding:0 0 96px;margin-bottom:82px;border-bottom:1px solid var(--preview-line)}
+.series-head{display:grid;grid-template-columns:.72fr 1.28fr;gap:60px;align-items:end;margin-bottom:42px}
+.series-index{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--preview-muted);margin-bottom:14px}.series-code{font-size:13px;letter-spacing:.16em;font-weight:600;text-transform:uppercase}
+.series-head h2{font-size:clamp(42px,4.4vw,64px);line-height:1.02;margin:0 0 14px}.series-copy{font-size:15px;line-height:1.75;color:var(--preview-muted);max-width:700px}
+.sku-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--preview-line);border:1px solid var(--preview-line)}
+.sku-card{background:#f8f5ef;min-height:190px;padding:25px 24px 22px;display:flex;flex-direction:column;transition:transform .2s ease,background .2s ease}
+.sku{font-size:10px;letter-spacing:.18em;font-weight:600;margin-bottom:28px}.sku-card h3{font-family:"Playfair Display",Georgia,serif;font-size:23px;line-height:1.15;font-weight:400;margin:0 0 10px}.sku-card .cn{font-size:13px;color:var(--preview-muted);line-height:1.5}.sku-card .state{margin-top:auto;padding-top:24px;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--preview-muted)}
+.note{max-width:880px;padding:32px 0 0}.note h2{font-family:"Playfair Display",Georgia,serif;font-weight:400;font-size:34px;margin:0 0 14px}.note p{font-size:15px;line-height:1.8;color:var(--preview-muted);margin:0}
+@media (hover:hover) and (pointer:fine){.sku-card:hover{background:#fffdfa;transform:translateY(-3px)}}
+@media(max-width:1050px){.sku-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.series-head{grid-template-columns:1fr;gap:22px}.summary{grid-template-columns:repeat(2,1fr)}.summary div:nth-child(2){border-right:0}.summary div:nth-child(-n+2){border-bottom:1px solid var(--preview-line)}}
+@media(max-width:720px){.preview-shell{padding:0 22px 64px}.preview-topbar{padding:22px 0}.preview-status{font-size:8px}.preview-hero{padding:64px 0 48px}.preview-hero h1{font-size:46px;line-height:1.02}.summary{margin-bottom:64px}.summary div{padding:20px 14px}.summary div:first-child{padding-left:14px}.summary strong{font-size:27px}.series{padding-bottom:68px;margin-bottom:60px}.sku-grid{grid-template-columns:1fr 1fr}.sku-card{min-height:170px;padding:20px 18px}.sku-card h3{font-size:20px}}
+@media(max-width:480px){.sku-grid{grid-template-columns:1fr}.summary{grid-template-columns:1fr 1fr}.preview-brand{font-size:14px}.preview-hero h1{font-size:40px}}
+@media(prefers-reduced-motion:reduce){.sku-card{transition:none}}
+</style>
+</head>
+<body>
+<div class="preview-shell">
+  <header class="preview-topbar">
+    <a class="preview-brand" href="index.html">VAYRENZA <span>GLOBAL</span></a>
+    <div class="preview-status">Unlisted Working Preview · 2026</div>
+  </header>
+
+  <main>
+    <section class="preview-hero">
+      <p class="eyebrow">2026 CORE COLLECTION · PRODUCT ARCHITECTURE</p>
+      <h1>48 SKUs.<br>One coherent system.</h1>
+      <p>A reserved product architecture for VAYRENZA GLOBAL. The collection is organized into three distinct families, allowing verified products to be assigned later without rebuilding the catalogue structure.</p>
+    </section>
+
+    <section class="summary" aria-label="Collection summary">
+      <div><strong>48</strong><span>Total SKUs</span></div>
+      <div><strong>18</strong><span>VZ-S · Suit &amp; Shirt</span></div>
+      <div><strong>14</strong><span>VZ-T · Trouser &amp; Skirt</span></div>
+      <div><strong>16</strong><span>VZ-P · Premium &amp; Specialty</span></div>
+    </section>
+
+    <section class="series" id="vz-s">
+      <div class="series-head">
+        <div><div class="series-index">01 · 18 SKUs</div><div class="series-code">VZ-S SERIES</div></div>
+        <div><h2>Suit &amp; Shirt</h2><p class="series-copy">Refined silhouettes for shirts, knitwear, jackets, tailoring, coats and premium retail presentation.</p></div>
+      </div>
+      <div class="sku-grid">
+        <article class="sku-card"><div class="sku">VZ-S01</div><h3>Classic Shirt Hanger</h3><div class="cn">经典衬衫衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S02</div><h3>Slim Shirt Hanger</h3><div class="cn">纤薄衬衫衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S03</div><h3>Broad-Shoulder Shirt Hanger</h3><div class="cn">宽肩衬衫衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S04</div><h3>Anti-Slip Shirt Hanger</h3><div class="cn">防滑衬衫衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S05</div><h3>Blouse Hanger</h3><div class="cn">女式上衣衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S06</div><h3>Knitwear Hanger</h3><div class="cn">针织衫衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S07</div><h3>Lightweight Jacket Hanger</h3><div class="cn">轻型夹克衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S08</div><h3>Tailored Jacket Hanger</h3><div class="cn">精裁夹克衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S09</div><h3>Classic Suit Hanger</h3><div class="cn">经典西装衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S10</div><h3>Wide-Shoulder Suit Hanger</h3><div class="cn">宽肩西装衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S11</div><h3>Suit Hanger with Trouser Bar</h3><div class="cn">带裤杆西装衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S12</div><h3>Jacket Hanger with Trouser Bar</h3><div class="cn">带裤杆夹克衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S13</div><h3>Heavy Jacket Hanger</h3><div class="cn">重型夹克衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S14</div><h3>Coat Hanger</h3><div class="cn">大衣衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S15</div><h3>Overcoat Hanger</h3><div class="cn">长大衣衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S16</div><h3>Garment Presentation Hanger</h3><div class="cn">服装陈列衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S17</div><h3>Compact Retail Hanger</h3><div class="cn">紧凑型零售衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-S18</div><h3>Signature Shoulder Hanger</h3><div class="cn">标志性肩型衣架</div><div class="state">Details in development</div></article>
+      </div>
+    </section>
+
+    <section class="series" id="vz-t">
+      <div class="series-head">
+        <div><div class="series-index">02 · 14 SKUs</div><div class="series-code">VZ-T SERIES</div></div>
+        <div><h2>Trouser &amp; Skirt</h2><p class="series-copy">Purpose-built bottom-garment systems balancing grip, garment care, presentation and space efficiency.</p></div>
+      </div>
+      <div class="sku-grid">
+        <article class="sku-card"><div class="sku">VZ-T01</div><h3>Straight Trouser Bar Hanger</h3><div class="cn">直杆裤架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T02</div><h3>Non-Slip Trouser Bar Hanger</h3><div class="cn">防滑裤杆衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T03</div><h3>Clamp-Bar Trouser Hanger</h3><div class="cn">夹杆式裤架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T04</div><h3>Open-Bar Trouser Hanger</h3><div class="cn">开放式裤杆衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T05</div><h3>Double-Bar Trouser Hanger</h3><div class="cn">双杆裤架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T06</div><h3>Classic Two-Clip Trouser Hanger</h3><div class="cn">经典双夹裤架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T07</div><h3>Adjustable Two-Clip Trouser Hanger</h3><div class="cn">可调双夹裤架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T08</div><h3>Wide-Grip Trouser Hanger</h3><div class="cn">宽夹持裤架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T09</div><h3>Classic Skirt Hanger</h3><div class="cn">经典半裙衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T10</div><h3>Adjustable Skirt Hanger</h3><div class="cn">可调半裙衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T11</div><h3>Delicate-Fabric Clip Hanger</h3><div class="cn">精细面料夹式衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T12</div><h3>Heavy-Duty Bottom Hanger</h3><div class="cn">重型下装衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T13</div><h3>Compact Bottom Hanger</h3><div class="cn">紧凑型下装衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-T14</div><h3>Coordinated Suit-Bottom Hanger</h3><div class="cn">西装配套下装衣架</div><div class="state">Details in development</div></article>
+      </div>
+    </section>
+
+    <section class="series" id="vz-p">
+      <div class="series-head">
+        <div><div class="series-index">03 · 16 SKUs</div><div class="series-code">VZ-P SERIES</div></div>
+        <div><h2>Premium &amp; Specialty</h2><p class="series-copy">Signature and specialty solutions for luxury retail, hotel and service-industry programs, professional wardrobes and bespoke development.</p></div>
+      </div>
+      <div class="sku-grid">
+        <article class="sku-card"><div class="sku">VZ-P01</div><h3>Luxury Wood Hanger</h3><div class="cn">奢华木质衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P02</div><h3>Premium Lacquer Hanger</h3><div class="cn">高端烤漆衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P03</div><h3>Fabric-Covered Hanger</h3><div class="cn">包布衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P04</div><h3>Velvet-Finish Hanger</h3><div class="cn">植绒饰面衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P05</div><h3>Acrylic Display Hanger</h3><div class="cn">亚克力陈列衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P06</div><h3>Bridal &amp; Gown Hanger</h3><div class="cn">婚纱与礼服衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P07</div><h3>Lingerie &amp; Delicates Hanger</h3><div class="cn">内衣与精细服饰衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P08</div><h3>Scarf &amp; Accessory Hanger</h3><div class="cn">围巾与配饰衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P09</div><h3>Children's Premium Hanger</h3><div class="cn">儿童高端衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P10</div><h3>Anti-Theft Hotel Hanger</h3><div class="cn">酒店防盗衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P11</div><h3>Hotel Open-Hook Hanger</h3><div class="cn">酒店开放式挂钩衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P12</div><h3>Hotel Closed-Ring Hanger</h3><div class="cn">酒店闭环式衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P13</div><h3>Robe &amp; Spa Hanger</h3><div class="cn">浴袍与水疗衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P14</div><h3>Uniform &amp; Professional Hanger</h3><div class="cn">制服与专业衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P15</div><h3>Sustainable-Material Hanger</h3><div class="cn">可持续材料衣架</div><div class="state">Details in development</div></article>
+        <article class="sku-card"><div class="sku">VZ-P16</div><h3>Bespoke Signature Hanger</h3><div class="cn">高端专属定制衣架</div><div class="state">Details in development</div></article>
+      </div>
+    </section>
+
+    <section class="note">
+      <p class="eyebrow">WORKING RULE</p>
+      <h2>Architecture first. Verified products next.</h2>
+      <p>No dimensions, materials, MOQ, finishes, load ratings, packaging data or product photography are being represented as final at this stage. Each reserved SKU will be populated only after the corresponding real product is confirmed.</p>
+    </section>
+  </main>
+</div>
+</body>
+</html>
