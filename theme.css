@@ -334,50 +334,104 @@ body > .shell .top{
   -webkit-backdrop-filter:blur(12px);
 }
 
-/* 48-SKU showroom — restrained Apple Dock-style focus magnification. */
+/* 48-SKU showroom — cylindrical filmstrip / coverflow geometry. */
 body > .shell .series-stage{
   overflow:visible !important;
+  perspective:1100px !important;
+  perspective-origin:50% 48%;
 }
 body > .shell .product-rail{
-  padding-top:38px !important;
-  padding-bottom:38px !important;
-  margin-top:-24px;
-  margin-bottom:-24px;
-  scroll-padding-inline:18px;
+  position:relative;
+  padding:64px 34px 68px !important;
+  margin-top:-38px;
+  margin-bottom:-42px;
+  gap:4px !important;
+  perspective:1100px;
+  transform-style:preserve-3d;
+  scroll-padding-inline:34px;
+  mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
 }
 body > .shell .product-card{
   position:relative;
   z-index:1;
-  transform-origin:center bottom;
-  will-change:transform;
-  transition:transform .34s cubic-bezier(.2,.75,.2,1),background-color .28s ease,border-color .28s ease,box-shadow .34s ease,opacity .28s ease !important;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform-origin:center center;
+  will-change:transform,opacity;
+  box-shadow:0 8px 22px rgba(24,22,18,.055);
+  transition:transform .48s cubic-bezier(.18,.72,.16,1),opacity .42s ease,background-color .32s ease,border-color .32s ease,box-shadow .48s ease,filter .42s ease !important;
 }
+
 @media (hover:hover) and (pointer:fine){
   body > .shell .product-rail:hover .product-card{
-    transform:scale(.93) translateY(0);
-    opacity:.82;
+    opacity:.62;
+    filter:saturate(.88);
   }
-  body > .shell .product-rail .product-card:hover{
-    transform:translateY(-18px) scale(1.20) !important;
-    z-index:6;
-    opacity:1;
-    background:rgba(255,255,255,.72) !important;
-    border-color:rgba(31,90,54,.26) !important;
-    box-shadow:0 22px 38px rgba(24,22,18,.11);
+
+  /* Every card before the focused card folds around the left side of an invisible cylinder. */
+  body > .shell .product-rail .product-card:has(~ .product-card:hover){
+    transform:translateX(28px) translateZ(-165px) rotateY(58deg) scale(.74) !important;
+    transform-origin:right center;
+    opacity:.58;
+    z-index:1;
   }
-  body > .shell .product-rail .product-card:has(+ .product-card:hover),
-  body > .shell .product-rail .product-card:hover + .product-card{
-    transform:translateY(-9px) scale(1.07) !important;
-    z-index:4;
-    opacity:.96;
+
+  /* Every card after the focused card folds symmetrically around the right side. */
+  body > .shell .product-rail .product-card:hover ~ .product-card{
+    transform:translateX(-28px) translateZ(-165px) rotateY(-58deg) scale(.74) !important;
+    transform-origin:left center;
+    opacity:.58;
+    z-index:1;
   }
-  body > .shell .product-rail .product-card:has(+ .product-card + .product-card:hover),
+
+  /* The second-nearest cards form the large camera-film arc. */
+  body > .shell .product-rail .product-card:has(+ .product-card + .product-card:hover){
+    transform:translateX(18px) translateZ(-105px) rotateY(49deg) scale(.80) !important;
+    opacity:.70;
+    z-index:2;
+  }
   body > .shell .product-rail .product-card:hover + .product-card + .product-card{
-    transform:translateY(-4px) scale(1.01) !important;
+    transform:translateX(-18px) translateZ(-105px) rotateY(-49deg) scale(.80) !important;
+    opacity:.70;
+    z-index:2;
+  }
+
+  /* Immediate neighbours curve sharply inward instead of enlarging. */
+  body > .shell .product-rail .product-card:has(+ .product-card:hover){
+    transform:translateX(9px) translateZ(-54px) rotateY(36deg) scale(.86) !important;
+    opacity:.86;
     z-index:3;
-    opacity:.90;
+  }
+  body > .shell .product-rail .product-card:hover + .product-card{
+    transform:translateX(-9px) translateZ(-54px) rotateY(-36deg) scale(.86) !important;
+    opacity:.86;
+    z-index:3;
+  }
+
+  /* Only the selected centre product comes fully forward. */
+  body > .shell .product-rail .product-card:hover{
+    transform:translateZ(96px) translateY(-12px) scale(1.13) !important;
+    transform-origin:center center;
+    z-index:8;
+    opacity:1;
+    filter:none;
+    background:rgba(255,255,255,.78) !important;
+    border-color:rgba(31,90,54,.27) !important;
+    box-shadow:0 30px 55px rgba(24,22,18,.14);
   }
 }
+
+@media(max-width:720px){
+  body > .shell .product-rail{
+    padding-top:46px !important;
+    padding-bottom:50px !important;
+    mask-image:none;
+    -webkit-mask-image:none;
+  }
+}
+
 @media (prefers-reduced-motion:reduce){
   body > .shell .product-card{
     transform:none !important;
