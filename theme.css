@@ -249,3 +249,78 @@ body > .shell .summary strong{
   text-rendering:geometricPrecision;
   margin-bottom:8px !important;
 }
+
+/* 48-SKU preview header — visually unified with the main VAYRENZA navigation system. */
+body > .shell .top{
+  min-height:84px !important;
+  background:#F3EFE7 !important;
+  border-bottom:1px solid #d5cfc4 !important;
+  box-shadow:0 0 0 100vmax #F3EFE7;
+  clip-path:inset(0 -100vmax);
+  gap:32px !important;
+}
+body > .shell .top > .brand{
+  display:block !important;
+  width:222px !important;
+  min-width:222px !important;
+  height:48px !important;
+  margin:0 !important;
+  background:url('vayrenza-logo.svg') left center/contain no-repeat !important;
+  font-size:0 !important;
+  letter-spacing:0 !important;
+  color:transparent !important;
+  overflow:hidden !important;
+  white-space:nowrap !important;
+}
+body > .shell .top > .brand span{display:none !important}
+body > .shell .preview-nav{
+  gap:25px !important;
+  margin-left:34px !important;
+  justify-content:flex-start !important;
+  min-width:0 !important;
+}
+body > .shell .preview-nav a{
+  font:500 11px/1.2 Inter,Arial,sans-serif !important;
+  letter-spacing:.11em !important;
+  color:#34322e !important;
+  text-decoration:none !important;
+  white-space:nowrap !important;
+}
+body > .shell .preview-nav a::after{
+  bottom:-7px !important;
+  height:1px !important;
+  background:#171716 !important;
+}
+body > .shell .tools{
+  gap:14px !important;
+  align-items:center !important;
+}
+body > .shell .status{
+  font:500 8px/1.2 Inter,Arial,sans-serif !important;
+  letter-spacing:.12em !important;
+  color:#77736c !important;
+}
+body > .shell .tools select{
+  height:28px !important;
+  min-width:58px !important;
+  padding:0 24px 0 9px !important;
+  border:1px solid #b8b2a8 !important;
+  border-radius:2px !important;
+  background-color:rgba(255,255,255,.34) !important;
+  font:500 8px/1 Inter,Arial,sans-serif !important;
+  letter-spacing:.12em !important;
+  color:#34322e !important;
+}
+@media(max-width:1280px){
+  body > .shell .top > .brand{width:206px !important;min-width:206px !important;height:45px !important}
+  body > .shell .preview-nav{gap:14px !important;margin-left:20px !important}
+  body > .shell .preview-nav a{font-size:9px !important;letter-spacing:.07em !important}
+}
+@media(max-width:1000px){
+  body > .shell .top{min-height:96px !important;padding-top:12px !important}
+  body > .shell .top > .brand{width:190px !important;min-width:190px !important;height:42px !important}
+  body > .shell .preview-nav{margin-left:0 !important;gap:14px !important}
+}
+@media(max-width:720px){
+  body > .shell .top > .brand{width:174px !important;min-width:174px !important;height:39px !important}
+}
