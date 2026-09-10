@@ -1,13 +1,18 @@
-/* VAYRENZA BACKGROUND SYSTEM — Toscanini-inspired, adapted for VAYRENZA */
+/* VAYRENZA BACKGROUND SYSTEM — approved luxury editorial palette */
 :root{
   --vz-canvas:#f4f1eb;
-  --vz-ivory:#f7f5f0;
-  --vz-warm:#eee9e1;
-  --vz-warm-deep:#e9e3da;
-  --vz-stone:#e4ded4;
+  --vz-hero:#f4f1eb;
+  --vz-products:#f6f3ed;
+  --vz-solutions:#f2eee7;
+  --vz-custom:#eee9e1;
+  --vz-sustainability:#ebe5dc;
+  --vz-insights:#f3efe8;
+  --vz-about:#eee9e1;
+  --vz-contact:#f5f1ea;
   --vz-card:#faf8f4;
   --vz-ink:#11110f;
   --vz-footer-text:#d8d3ca;
+  --vz-hairline:rgba(42,38,33,.075);
 }
 
 body,
@@ -15,25 +20,17 @@ main{
   background:var(--vz-canvas);
 }
 
-/* Quiet ivory sections: product and editorial content */
-#products,
-#insights{
-  background:var(--vz-ivory);
+.hero{
+  background:var(--vz-hero);
 }
 
-/* B2B stays light and warm; Custom moves one restrained tone deeper. */
-#solutions{
-  background:var(--vz-warm);
-}
-#custom{
-  background:var(--vz-warm-deep);
-}
-
-/* Slightly deeper stone sections create restrained editorial rhythm. */
-#sustainability,
-#about{
-  background:var(--vz-stone);
-}
+#products{background:var(--vz-products)}
+#solutions{background:var(--vz-solutions)}
+#custom{background:var(--vz-custom)}
+#sustainability{background:var(--vz-sustainability)}
+#insights{background:var(--vz-insights)}
+#about{background:var(--vz-about)}
+#contact.contact{background:var(--vz-contact)}
 
 #about .split{
   background:transparent;
@@ -44,12 +41,76 @@ main{
   background:var(--vz-card);
 }
 
-/* Final CTA remains warm and light before the black footer anchor. */
-#contact.contact{
-  background:var(--vz-warm);
+/* Subtle tonal blending at section boundaries: soft enough to avoid visible gradients. */
+#products,
+#solutions,
+#custom,
+#sustainability,
+#insights,
+#about,
+#contact{
+  position:relative;
+  overflow:hidden;
+  border-top:1px solid var(--vz-hairline);
 }
 
-/* Strong black foundation at the bottom, inspired by luxury editorial sites. */
+#products::before,
+#solutions::before,
+#custom::before,
+#sustainability::before,
+#insights::before,
+#about::before,
+#contact::before,
+#products::after,
+#solutions::after,
+#custom::after,
+#sustainability::after,
+#insights::after,
+#about::after,
+#contact::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:34px;
+  pointer-events:none;
+  z-index:0;
+}
+
+#products::before,
+#solutions::before,
+#custom::before,
+#sustainability::before,
+#insights::before,
+#about::before,
+#contact::before{
+  top:0;
+  background:linear-gradient(to bottom,rgba(255,255,255,.20),rgba(255,255,255,0));
+}
+
+#products::after,
+#solutions::after,
+#custom::after,
+#sustainability::after,
+#insights::after,
+#about::after,
+#contact::after{
+  bottom:0;
+  background:linear-gradient(to top,rgba(35,31,27,.018),rgba(35,31,27,0));
+}
+
+#products>*,
+#solutions>*,
+#custom>*,
+#sustainability>*,
+#insights>*,
+#about>*,
+#contact>*{
+  position:relative;
+  z-index:1;
+}
+
+/* Keep the footer as a strong black anchor. */
 footer{
   background:var(--vz-ink);
   color:var(--vz-footer-text);
@@ -61,15 +122,4 @@ footer .brand{
 footer .brand span,
 footer p{
   color:var(--vz-footer-text);
-}
-
-/* Hairline transitions keep the neutral palette structured without obvious blocks. */
-#products,
-#solutions,
-#custom,
-#sustainability,
-#insights,
-#about,
-#contact{
-  border-top:1px solid rgba(35,32,28,.055);
 }
