@@ -6,9 +6,12 @@ html[lang="de"] .section>*,html[lang="zh-CN"] .section>*{min-width:0}
 html[lang="de"] .hero h1,html[lang="zh-CN"] .hero h1{white-space:normal;max-width:100%}
 html[lang="de"] #custom h2,html[lang="zh-CN"] #custom h2{white-space:normal;max-width:100%}
 
-/* German copy is longer: preserve the approved right-shift while using the global navigation type scale. */
-html[lang="de"] .site-header nav{gap:12px;margin-left:68px}
-html[lang="de"] .header-actions{gap:12px}
+/* German copy is longer: preserve the approved right-shift, but tighten tracking and item gaps to prevent overflow. */
+html[lang="de"] .site-header nav{gap:8px;margin-left:54px}
+html[lang="de"] .site-header nav a{letter-spacing:.045em!important}
+html[lang="de"] .header-actions{gap:9px}
+html[lang="de"] .header-actions .search-link,
+html[lang="de"] .header-actions .quote{letter-spacing:.045em!important}
 
 /* Chinese typography system — headings/UI use Source Han Sans; editorial body copy uses Source Han Serif. */
 html[lang="zh-CN"] body,
@@ -58,8 +61,9 @@ html[lang="zh-CN"] .section h2{line-height:1.14}
 
 @media(min-width:801px) and (max-width:1250px){
   html[lang="de"] .hero h1{font-size:clamp(34px,3.55vw,48px);line-height:1.06}
-  html[lang="de"] .site-header{gap:16px;padding-left:3.2vw;padding-right:3.2vw}
-  html[lang="de"] .site-header nav{gap:8px;margin-left:34px}
+  html[lang="de"] .site-header{gap:13px;padding-left:3vw;padding-right:3vw}
+  html[lang="de"] .site-header nav{gap:6px;margin-left:22px}
+  html[lang="de"] .site-header nav a{letter-spacing:.025em!important}
   html[lang="zh-CN"] .site-header{gap:18px;padding-left:3.5vw;padding-right:3.5vw}
   html[lang="zh-CN"] .site-header nav{gap:14px;margin-left:12px}
 }
