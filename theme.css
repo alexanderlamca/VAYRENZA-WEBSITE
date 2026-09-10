@@ -1,25 +1,35 @@
-/* VAYRENZA BACKGROUND SYSTEM — unified secondary section palette */
+/* VAYRENZA BACKGROUND SYSTEM — Toscanini-inspired, adapted for VAYRENZA */
 :root{
-  --vz-canvas:#f5f2ec;
-  --vz-section:#f5f2ec;
-  --vz-section-alt:#efeae2;
+  --vz-canvas:#f4f1eb;
+  --vz-ivory:#f7f5f0;
+  --vz-warm:#eee9e1;
+  --vz-stone:#e4ded4;
   --vz-card:#faf8f4;
-  --vz-contact:#e8e2d8;
-  --vz-footer:#ece8e0;
+  --vz-ink:#11110f;
+  --vz-footer-text:#d8d3ca;
 }
 
 body,
-main,
-#products,
-#solutions,
-#insights{
-  background:var(--vz-section);
+main{
+  background:var(--vz-canvas);
 }
 
-#custom,
+/* Quiet ivory sections: product and editorial content */
+#products,
+#insights{
+  background:var(--vz-ivory);
+}
+
+/* Warm neutral sections: B2B and custom development */
+#solutions,
+#custom{
+  background:var(--vz-warm);
+}
+
+/* Slightly deeper stone sections create restrained editorial rhythm. */
 #sustainability,
 #about{
-  background:var(--vz-section-alt);
+  background:var(--vz-stone);
 }
 
 #about .split{
@@ -31,15 +41,26 @@ main,
   background:var(--vz-card);
 }
 
+/* Final CTA remains warm and light before the black footer anchor. */
 #contact.contact{
-  background:var(--vz-contact);
+  background:var(--vz-warm);
 }
 
+/* Strong black foundation at the bottom, inspired by luxury editorial sites. */
 footer{
-  background:var(--vz-footer);
+  background:var(--vz-ink);
+  color:var(--vz-footer-text);
+  border-top:0;
+}
+footer .brand{
+  color:#f5f2ec;
+}
+footer .brand span,
+footer p{
+  color:var(--vz-footer-text);
 }
 
-/* Preserve the warm premium direction while preventing abrupt color jumps. */
+/* Hairline transitions keep the neutral palette structured without obvious blocks. */
 #products,
 #solutions,
 #custom,
@@ -47,5 +68,5 @@ footer{
 #insights,
 #about,
 #contact{
-  border-top:1px solid rgba(52,50,46,.06);
+  border-top:1px solid rgba(35,32,28,.055);
 }
