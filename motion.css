@@ -47,6 +47,40 @@
   width:100%;
 }
 
+/* B2B solution identifiers — restrained SVG line icons using the VAYRENZA deep green. */
+#solutions .solution-icon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:68px;
+  height:68px;
+  margin:10px auto 22px;
+  border:1px solid rgba(31,90,54,.14);
+  border-radius:50%;
+  background:rgba(31,90,54,.035);
+  color:#1F5A36;
+  transition:transform var(--vz-motion-base) var(--vz-motion-ease),background-color var(--vz-motion-base) var(--vz-motion-ease),border-color var(--vz-motion-base) var(--vz-motion-ease);
+}
+#solutions .solution-icon svg{
+  width:36px;
+  height:36px;
+  display:block;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  vector-effect:non-scaling-stroke;
+}
+#solutions .grid>div:hover .solution-icon{
+  transform:translateY(2px);
+  background:rgba(31,90,54,.055);
+  border-color:rgba(31,90,54,.22);
+}
+#solutions .grid>div .solution-icon+h3{
+  margin-top:0;
+}
+
 /* Animated cards — center the complete content block and keep every line safely inside its card. */
 .cards article,
 #solutions .grid>div,
@@ -157,6 +191,7 @@
     transform:none;
     box-shadow:none;
   }
+  #solutions .grid>div:hover .solution-icon{transform:none}
 }
 
 @media(max-width:1100px){
@@ -165,6 +200,8 @@
     padding-left:18px;
     padding-right:18px;
   }
+  #solutions .solution-icon{width:62px;height:62px;margin-bottom:18px}
+  #solutions .solution-icon svg{width:33px;height:33px}
 }
 
 @media(prefers-reduced-motion:reduce){
