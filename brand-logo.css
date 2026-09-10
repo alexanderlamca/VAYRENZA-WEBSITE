@@ -5,9 +5,9 @@
 .site-header .brand.brand-logo{
   display:inline-flex;
   align-items:center;
-  width:228px;
-  min-width:228px;
-  height:42px;
+  width:222px;
+  min-width:222px;
+  height:48px;
   text-decoration:none;
   line-height:0;
   overflow:visible;
@@ -15,24 +15,24 @@
 .site-header .brand.brand-logo img{
   display:block;
   width:100%;
-  height:auto;
-  max-height:42px;
+  height:100%;
+  max-height:48px;
   object-fit:contain;
   object-position:left center;
 }
 @media(max-width:1280px){
-  .site-header .brand.brand-logo{width:210px;min-width:210px;height:39px}
-  .site-header .brand.brand-logo img{max-height:39px}
+  .site-header .brand.brand-logo{width:206px;min-width:206px;height:45px}
+  .site-header .brand.brand-logo img{max-height:45px}
 }
 @media(max-width:1100px){
-  .site-header .brand.brand-logo{width:194px;min-width:194px;height:36px}
-  .site-header .brand.brand-logo img{max-height:36px}
+  .site-header .brand.brand-logo{width:190px;min-width:190px;height:42px}
+  .site-header .brand.brand-logo img{max-height:42px}
 }
 @media(max-width:800px){
-  .site-header .brand.brand-logo{width:176px;min-width:176px;height:34px}
-  .site-header .brand.brand-logo img{max-height:34px}
+  .site-header .brand.brand-logo{width:174px;min-width:174px;height:39px}
+  .site-header .brand.brand-logo img{max-height:39px}
 }
 @media(max-width:500px){
-  .site-header .brand.brand-logo{width:160px;min-width:160px;height:31px}
-  .site-header .brand.brand-logo img{max-height:31px}
+  .site-header .brand.brand-logo{width:158px;min-width:158px;height:36px}
+  .site-header .brand.brand-logo img{max-height:36px}
 }
