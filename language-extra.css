@@ -1,0 +1,49 @@
+/* VAYRENZA — German + Simplified Chinese language refinements */
+html[lang="de"],html[lang="zh-CN"]{overflow-x:hidden}
+html[lang="de"] .hero-copy,html[lang="zh-CN"] .hero-copy,
+html[lang="de"] .section>*,html[lang="zh-CN"] .section>*{min-width:0}
+
+html[lang="de"] .hero h1,html[lang="zh-CN"] .hero h1{white-space:normal;max-width:100%}
+html[lang="de"] #custom h2,html[lang="zh-CN"] #custom h2{white-space:normal;max-width:100%}
+
+/* German copy is often longer, so keep the header compact and balanced. */
+html[lang="de"] .site-header nav{gap:14px;margin-left:16px}
+html[lang="de"] .site-header nav a{font-size:7.6px;letter-spacing:.075em}
+html[lang="de"] .header-actions{gap:12px}
+html[lang="de"] .header-actions .quote{font-size:7px;letter-spacing:.075em}
+html[lang="de"] .header-actions .search-link{font-size:8px;letter-spacing:.1em}
+
+/* Chinese typography: use native CJK faces instead of forcing Latin display fonts. */
+html[lang="zh-CN"] body,
+html[lang="zh-CN"] button,
+html[lang="zh-CN"] input,
+html[lang="zh-CN"] select,
+html[lang="zh-CN"] textarea{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC","Noto Sans SC",Arial,sans-serif}
+html[lang="zh-CN"] .hero h1,
+html[lang="zh-CN"] .section h2,
+html[lang="zh-CN"] .section h3,
+html[lang="zh-CN"] .search-input,
+html[lang="zh-CN"] .quote-title,
+html[lang="zh-CN"] .quote-status h3{font-family:"Songti SC","STSong","Noto Serif CJK SC","Noto Serif SC",serif;letter-spacing:-.02em}
+html[lang="zh-CN"] .eyebrow,
+html[lang="zh-CN"] nav a,
+html[lang="zh-CN"] .header-actions,
+html[lang="zh-CN"] .cards span{letter-spacing:.12em}
+html[lang="zh-CN"] .site-header nav{gap:20px;margin-left:24px}
+html[lang="zh-CN"] .site-header nav a{font-size:9px}
+html[lang="zh-CN"] .hero h1{line-height:1.12}
+html[lang="zh-CN"] .section h2{line-height:1.14}
+
+@media(min-width:801px) and (max-width:1250px){
+  html[lang="de"] .hero h1{font-size:clamp(34px,3.55vw,48px);line-height:1.06}
+  html[lang="de"] .site-header{gap:16px;padding-left:3.2vw;padding-right:3.2vw}
+  html[lang="de"] .site-header nav{gap:10px;margin-left:10px}
+  html[lang="de"] .site-header nav a{font-size:7.2px;letter-spacing:.055em}
+  html[lang="zh-CN"] .site-header{gap:18px;padding-left:3.5vw;padding-right:3.5vw}
+  html[lang="zh-CN"] .site-header nav{gap:14px;margin-left:12px}
+}
+
+@media(max-width:800px){
+  html[lang="de"] .hero h1,html[lang="zh-CN"] .hero h1{font-size:clamp(38px,9vw,48px)}
+  html[lang="zh-CN"] .hero h1{line-height:1.16}
+}
