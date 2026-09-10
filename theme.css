@@ -141,7 +141,7 @@ body > .shell #collections .card::after{
 }
 @media (hover:hover) and (pointer:fine){
   body > .shell #collections .card:hover{
-    transform:translateY(-3px) !important;
+    transform:translateY(3px) !important;
     background-color:rgba(255,255,255,.26) !important;
     opacity:1 !important;
   }
