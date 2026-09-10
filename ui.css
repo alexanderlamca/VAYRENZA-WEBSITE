@@ -29,20 +29,24 @@ body.search-open{overflow:hidden}
 /* Secondary language menu — enlarged one step. */
 .language-menu a{font-size:9px!important;line-height:1.25}
 
-/* MULTILINGUAL LAYOUT GUARD — longer Spanish/French copy must never overflow */
+/* MULTILINGUAL LAYOUT GUARD — longer Spanish/French copy must never overflow. Keep the global font size; tighten tracking and item spacing only. */
 html[lang="es"],html[lang="fr"]{overflow-x:hidden}
 html[lang="es"] .hero-copy,html[lang="fr"] .hero-copy,
 html[lang="es"] .section>*,html[lang="fr"] .section>*{min-width:0}
 html[lang="es"] .hero h1,html[lang="fr"] .hero h1{white-space:normal;max-width:100%;overflow-wrap:normal;word-break:normal}
 html[lang="es"] #custom h2,html[lang="fr"] #custom h2{white-space:normal;max-width:100%}
-html[lang="es"] .site-header nav,html[lang="fr"] .site-header nav{gap:15px;margin-left:22px}
-html[lang="es"] .header-actions,html[lang="fr"] .header-actions{gap:14px}
+html[lang="es"] .site-header nav,html[lang="fr"] .site-header nav{gap:10px;margin-left:18px}
+html[lang="es"] .site-header nav a,html[lang="fr"] .site-header nav a{letter-spacing:.055em!important}
+html[lang="es"] .header-actions,html[lang="fr"] .header-actions{gap:11px}
+html[lang="es"] .header-actions .search-link,html[lang="fr"] .header-actions .search-link,
+html[lang="es"] .header-actions .quote,html[lang="fr"] .header-actions .quote{letter-spacing:.055em!important}
 
 @media(min-width:801px) and (max-width:1250px){
   html[lang="es"] .hero h1,html[lang="fr"] .hero h1{font-size:clamp(34px,3.6vw,48px);line-height:1.06}
-  html[lang="es"] .site-header,html[lang="fr"] .site-header{gap:18px;padding-left:3.5vw;padding-right:3.5vw}
-  html[lang="es"] .site-header nav,html[lang="fr"] .site-header nav{gap:10px;margin-left:12px}
-  .site-header nav a{font-size:10px!important;letter-spacing:.08em}
+  html[lang="es"] .site-header,html[lang="fr"] .site-header{gap:14px;padding-left:3.2vw;padding-right:3.2vw}
+  html[lang="es"] .site-header nav,html[lang="fr"] .site-header nav{gap:7px;margin-left:8px}
+  html[lang="es"] .site-header nav a,html[lang="fr"] .site-header nav a{letter-spacing:.035em!important}
+  .site-header nav a{font-size:10px!important}
   .header-actions .search-link,.header-actions .quote{font-size:9px!important}
   .language-dropdown summary{font-size:9px!important}
   .language-menu a{font-size:9px!important}
