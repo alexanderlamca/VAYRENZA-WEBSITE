@@ -1,0 +1,51 @@
+/* VAYRENZA BACKGROUND SYSTEM — unified secondary section palette */
+:root{
+  --vz-canvas:#f5f2ec;
+  --vz-section:#f5f2ec;
+  --vz-section-alt:#efeae2;
+  --vz-card:#faf8f4;
+  --vz-contact:#e8e2d8;
+  --vz-footer:#ece8e0;
+}
+
+body,
+main,
+#products,
+#solutions,
+#insights{
+  background:var(--vz-section);
+}
+
+#custom,
+#sustainability,
+#about{
+  background:var(--vz-section-alt);
+}
+
+#about .split{
+  background:transparent;
+}
+
+.cards article,
+.language-menu{
+  background:var(--vz-card);
+}
+
+#contact.contact{
+  background:var(--vz-contact);
+}
+
+footer{
+  background:var(--vz-footer);
+}
+
+/* Preserve the warm premium direction while preventing abrupt color jumps. */
+#products,
+#solutions,
+#custom,
+#sustainability,
+#insights,
+#about,
+#contact{
+  border-top:1px solid rgba(52,50,46,.06);
+}
