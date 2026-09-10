@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" role="img" aria-labelledby="title desc">
   <title id="title">VAYRENZA GLOBAL</title>
-  <desc id="desc">VAYRENZA wordmark with a smaller GLOBAL label accented in green.</desc>
+  <desc id="desc">VAYRENZA wordmark with a smaller solid deep-green GLOBAL label.</desc>
   <style>
     .main{font-family:Inter,Arial,sans-serif;font-size:42px;font-weight:600;letter-spacing:8px;fill:#11110f}
-    .global{font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:500;letter-spacing:5px;fill:#11110f;stroke:#3f7a4b;stroke-width:.8;paint-order:stroke fill}
+    .global{font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:500;letter-spacing:5px;fill:#1F5A36}
   </style>
   <text class="main" x="4" y="50">VAYRENZA</text>
   <text class="global" x="292" y="49">GLOBAL</text>
