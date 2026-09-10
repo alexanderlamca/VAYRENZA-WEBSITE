@@ -47,7 +47,7 @@
   width:100%;
 }
 
-/* Animated cards — keep all text centered and safely contained. */
+/* Animated cards — center the complete content block and keep every line safely inside its card. */
 .cards article,
 #solutions .grid>div,
 #insights .insights-grid>article,
@@ -59,21 +59,34 @@
 #solutions .grid>div>*,
 #insights .insights-grid>article>*,
 #about .about-grid>article>*{
+  width:100%;
   max-width:100%;
   margin-left:auto;
   margin-right:auto;
   box-sizing:border-box;
-  overflow-wrap:break-word;
+  text-align:center;
+  overflow-wrap:anywhere;
   word-break:normal;
+}
+#solutions .grid>div,
+.cards article{
+  padding-left:24px;
+  padding-right:24px;
+}
+#solutions .grid h3,
+#solutions .grid p,
+.cards h3,
+.cards p{
+  max-width:100%;
 }
 
 /* Slightly softer motion for editorial sections */
 #insights .insights-grid>article,
 #about .about-grid>article{
-  padding-left:14px;
-  padding-right:14px;
-  margin-left:-14px;
-  margin-right:-14px;
+  padding-left:18px;
+  padding-right:18px;
+  margin-left:-18px;
+  margin-right:-18px;
 }
 
 /* Contact CTA inherits the same restrained lift language */
@@ -143,6 +156,14 @@
   #contact .btn.primary:hover{
     transform:none;
     box-shadow:none;
+  }
+}
+
+@media(max-width:1100px){
+  #solutions .grid>div,
+  .cards article{
+    padding-left:18px;
+    padding-right:18px;
   }
 }
 
