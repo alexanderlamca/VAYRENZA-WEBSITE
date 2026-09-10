@@ -123,3 +123,35 @@ footer .brand span,
 footer p{
   color:var(--vz-footer-text);
 }
+
+/* Unlisted 2026 product preview — unified card motion system. */
+body > .shell #collections .card{
+  background:transparent !important;
+  transform:translateY(0) !important;
+  opacity:1 !important;
+  transition:transform .28s ease,background-color .28s ease,opacity .28s ease !important;
+}
+body > .shell #collections .card::after{
+  top:0 !important;
+  bottom:auto !important;
+  height:1px !important;
+  transform:scaleX(0) !important;
+  transform-origin:left center !important;
+  transition:transform .32s ease !important;
+}
+@media (hover:hover) and (pointer:fine){
+  body > .shell #collections .card:hover{
+    transform:translateY(-3px) !important;
+    background-color:rgba(255,255,255,.26) !important;
+    opacity:1 !important;
+  }
+  body > .shell #collections .card:hover::after{
+    transform:scaleX(1) !important;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  body > .shell #collections .card,
+  body > .shell #collections .card::after{
+    transition:none !important;
+  }
+}
