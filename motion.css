@@ -47,6 +47,26 @@
   width:100%;
 }
 
+/* Animated cards — keep all text centered and safely contained. */
+.cards article,
+#solutions .grid>div,
+#insights .insights-grid>article,
+#about .about-grid>article{
+  text-align:center;
+  overflow:hidden;
+}
+.cards article>*,
+#solutions .grid>div>*,
+#insights .insights-grid>article>*,
+#about .about-grid>article>*{
+  max-width:100%;
+  margin-left:auto;
+  margin-right:auto;
+  box-sizing:border-box;
+  overflow-wrap:break-word;
+  word-break:normal;
+}
+
 /* Slightly softer motion for editorial sections */
 #insights .insights-grid>article,
 #about .about-grid>article{
