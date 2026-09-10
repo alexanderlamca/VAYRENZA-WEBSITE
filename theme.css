@@ -3,6 +3,7 @@
   --vz-canvas:#f4f1eb;
   --vz-ivory:#f7f5f0;
   --vz-warm:#eee9e1;
+  --vz-warm-deep:#e9e3da;
   --vz-stone:#e4ded4;
   --vz-card:#faf8f4;
   --vz-ink:#11110f;
@@ -20,10 +21,12 @@ main{
   background:var(--vz-ivory);
 }
 
-/* Warm neutral sections: B2B and custom development */
-#solutions,
-#custom{
+/* B2B stays light and warm; Custom moves one restrained tone deeper. */
+#solutions{
   background:var(--vz-warm);
+}
+#custom{
+  background:var(--vz-warm-deep);
 }
 
 /* Slightly deeper stone sections create restrained editorial rhythm. */
