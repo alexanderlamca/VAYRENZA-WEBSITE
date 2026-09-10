@@ -324,3 +324,12 @@ body > .shell .tools select{
 @media(max-width:720px){
   body > .shell .top > .brand{width:174px !important;min-width:174px !important;height:39px !important}
 }
+
+/* Keep the 48-SKU navigation locked at the top while the catalogue scrolls. */
+body > .shell .top{
+  position:sticky !important;
+  top:0 !important;
+  z-index:120 !important;
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
