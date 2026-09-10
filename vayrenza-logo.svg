@@ -1,30 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 76" role="img" aria-labelledby="title desc">
   <title id="title">VAYRENZA GLOBAL</title>
-  <desc id="desc">VAYRENZA wordmark with the A represented by a refined wooden garment hanger and a smaller deep-green GLOBAL label.</desc>
+  <desc id="desc">VAYRENZA geometric wordmark with a hookless wooden hanger-inspired A and separate deep-green GLOBAL label.</desc>
   <defs>
     <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#c9914f"/>
-      <stop offset="0.5" stop-color="#a96f34"/>
-      <stop offset="1" stop-color="#8a5628"/>
+      <stop offset="0" stop-color="#c89554"/>
+      <stop offset="0.52" stop-color="#ad7539"/>
+      <stop offset="1" stop-color="#8d592d"/>
     </linearGradient>
   </defs>
   <style>
-    .main{font-family:Inter,Arial,sans-serif;font-size:42px;font-weight:600;letter-spacing:8px;fill:#11110f}
-    .global{font-family:Inter,Arial,sans-serif;font-size:16px;font-weight:600;letter-spacing:5px;fill:#1F5A36}
-    .hanger-wood{fill:none;stroke:url(#wood);stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
-    .hanger-bar{fill:none;stroke:#9a622f;stroke-width:2.4;stroke-linecap:round}
-    .hanger-hook{fill:none;stroke:#6d675f;stroke-width:2.3;stroke-linecap:round;stroke-linejoin:round}
+    .mark{fill:#11110f}
+    .hanger{fill:none;stroke:url(#wood);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+    .hangerbar{fill:none;stroke:#9a632f;stroke-width:2.7;stroke-linecap:round}
+    .global{font-family:Inter,Arial,sans-serif;font-size:14px;font-weight:600;letter-spacing:4.8px;fill:#1F5A36}
   </style>
 
-  <text class="main" x="4" y="50">V</text>
+  <!-- Custom geometric V -->
+  <path class="mark" d="M5 14h11l15 39 15-39h11L36 62H26L5 14Z"/>
 
-  <!-- Stylized wooden hanger as the second letter A -->
-  <g aria-hidden="true" transform="translate(53 5)">
-    <path class="hanger-hook" d="M20 13c0-7 11-8 12-1 .8 5-4 7-7 9-2 1-3 3-3 5"/>
-    <path class="hanger-wood" d="M22 24 4 47M22 24l18 23"/>
-    <path class="hanger-bar" d="M8 43h28"/>
+  <!-- Hookless wooden hanger symbol forming the first A -->
+  <g aria-hidden="true" transform="translate(66 8)">
+    <path class="hanger" d="M24 8 3 52M24 8l21 44"/>
+    <path class="hangerbar" d="M9 42h30"/>
   </g>
 
-  <text class="main" x="101" y="50">YRENZA</text>
-  <text class="global" x="292" y="49">GLOBAL</text>
+  <!-- Custom geometric Y -->
+  <path class="mark" d="M119 14h12l14 19 14-19h12l-21 29v19h-10V43l-21-29Z"/>
+  <!-- R -->
+  <path class="mark" fill-rule="evenodd" d="M181 14h28c13 0 21 7 21 18 0 8-4 14-12 17l15 13h-15l-13-12h-13v12h-11V14Zm11 9v18h16c7 0 11-3 11-9s-4-9-11-9h-16Z"/>
+  <!-- E -->
+  <path class="mark" d="M243 14h43v9h-32v10h28v9h-28v11h33v9h-44V14Z"/>
+  <!-- N -->
+  <path class="mark" d="M299 14h10l29 31V14h11v48h-10l-29-31v31h-11V14Z"/>
+  <!-- Z with restrained diagonal cut language -->
+  <path class="mark" d="M362 14h45v9l-29 30h30v9h-46v-9l29-30h-29v-9Z"/>
+  <path d="M379 39h18l-5 5h-18l5-5Z" fill="#f3efe7"/>
+  <!-- Final A -->
+  <path class="mark" fill-rule="evenodd" d="M438 14h11l22 48h-12l-5-11h-22l-5 11h-12l23-48Zm5 12-8 17h16l-8-17Z"/>
+
+  <!-- Separate secondary brand descriptor -->
+  <text class="global" x="482" y="52">GLOBAL</text>
 </svg>
