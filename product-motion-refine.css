@@ -186,14 +186,15 @@ body > .shell .series-tab[aria-selected="true"]{
   }
 }
 
-/* Strong visual confirmation for search-selected SKU — preserved and adapted to cut-corner frame */
+/* Search-selected SKU: 3px VAYRENZA green frame, matching the series selection accent */
 body > .shell .product-card.search-target{
   outline:none !important;
-  border-color:rgba(54,176,94,.98) !important;
-  box-shadow:inset 0 0 0 2px rgba(54,176,94,.92),0 0 0 2px rgba(120,255,164,.18),0 16px 38px rgba(31,90,54,.24) !important;
+  border-color:#1F5A36 !important;
+  box-shadow:inset 0 0 0 3px #1F5A36,0 0 0 1px rgba(31,90,54,.22),0 16px 38px rgba(31,90,54,.24) !important;
 }
 body > .shell .product-card.search-target::before,
 body > .shell .product-card.search-target::after{
   opacity:1 !important;
-  background:rgba(54,176,94,.98) !important;
+  height:3px !important;
+  background:#1F5A36 !important;
 }
