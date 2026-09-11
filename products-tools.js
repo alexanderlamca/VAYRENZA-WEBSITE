@@ -1,4 +1,9 @@
 (() => {
+  const motionCss=document.createElement('link');
+  motionCss.rel='stylesheet';
+  motionCss.href='product-motion-refine.css';
+  document.head.appendChild(motionCss);
+
   const labels = {
     en:{search:'SEARCH',quote:'REQUEST A QUOTE',title:'SITE SEARCH',placeholder:'Search products by SKU or name',close:'CLOSE',empty:'No matching products',results:n=>`${n} RESULT${n===1?'':'S'}`},
     es:{search:'BUSCAR',quote:'SOLICITAR COTIZACIÓN',title:'BUSCAR EN PRODUCTOS',placeholder:'Buscar por SKU o nombre',close:'CERRAR',empty:'No hay productos coincidentes',results:n=>`${n} RESULTADO${n===1?'':'S'}`},
