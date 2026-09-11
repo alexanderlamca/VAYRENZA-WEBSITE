@@ -1,0 +1,91 @@
+/* VAYRENZA 48-SKU compact showroom motion refinement */
+body > .shell .product-rail{
+  grid-auto-columns:minmax(190px,230px) !important;
+  gap:10px !important;
+  padding:46px 46px 52px !important;
+  margin-top:-22px !important;
+  margin-bottom:-28px !important;
+  perspective:1500px !important;
+  scroll-padding-inline:46px !important;
+}
+body > .shell .product-card{
+  min-height:170px !important;
+  will-change:transform;
+  transition:transform .62s cubic-bezier(.22,.78,.22,1),opacity .5s ease,background-color .38s ease,border-color .38s ease,box-shadow .5s ease,filter .5s ease !important;
+}
+body > .shell .product-card.has-image{
+  height:330px !important;
+  min-height:330px !important;
+}
+body > .shell .product-visual{
+  height:184px !important;
+}
+body > .shell .product-info{
+  padding:12px 15px 12px !important;
+}
+body > .shell .product-card h3{
+  font-size:18px !important;
+  line-height:1.08 !important;
+}
+body > .shell .product-benefit{
+  margin-top:6px !important;
+  font-size:9.5px !important;
+  line-height:1.4 !important;
+}
+body > .shell .product-card.has-image .state{
+  margin-top:7px !important;
+}
+body > .shell .series-stage{
+  perspective:1500px !important;
+  perspective-origin:50% 50% !important;
+}
+
+@media (hover:hover) and (pointer:fine){
+  body > .shell .product-rail:hover .product-card{
+    opacity:.82 !important;
+    filter:saturate(.95) !important;
+  }
+  body > .shell .product-rail .product-card:has(~ .product-card:hover){
+    transform:translateX(16px) translateZ(-88px) rotateY(34deg) scale(.88) !important;
+    opacity:.76 !important;
+  }
+  body > .shell .product-rail .product-card:hover ~ .product-card{
+    transform:translateX(-16px) translateZ(-88px) rotateY(-34deg) scale(.88) !important;
+    opacity:.76 !important;
+  }
+  body > .shell .product-rail .product-card:has(+ .product-card + .product-card:hover){
+    transform:translateX(10px) translateZ(-52px) rotateY(25deg) scale(.92) !important;
+    opacity:.84 !important;
+  }
+  body > .shell .product-rail .product-card:hover + .product-card + .product-card{
+    transform:translateX(-10px) translateZ(-52px) rotateY(-25deg) scale(.92) !important;
+    opacity:.84 !important;
+  }
+  body > .shell .product-rail .product-card:has(+ .product-card:hover){
+    transform:translateX(5px) translateZ(-24px) rotateY(16deg) scale(.96) !important;
+    opacity:.93 !important;
+  }
+  body > .shell .product-rail .product-card:hover + .product-card{
+    transform:translateX(-5px) translateZ(-24px) rotateY(-16deg) scale(.96) !important;
+    opacity:.93 !important;
+  }
+  body > .shell .product-rail .product-card:hover{
+    transform:translateZ(46px) translateY(-5px) scale(1.055) !important;
+    opacity:1 !important;
+    filter:none !important;
+    box-shadow:0 18px 36px rgba(24,22,18,.11) !important;
+  }
+}
+
+@media(max-width:720px){
+  body > .shell .product-rail{
+    grid-auto-columns:minmax(210px,72vw) !important;
+    padding:34px 18px 38px !important;
+    gap:12px !important;
+  }
+  body > .shell .product-card.has-image{
+    height:322px !important;
+    min-height:322px !important;
+  }
+  body > .shell .product-visual{height:180px !important}
+}
