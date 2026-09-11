@@ -21,6 +21,7 @@
     .product-search-meta{padding:12px 24px;color:#77736c;font:500 8px/1.2 Inter,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;border-bottom:1px solid rgba(21,20,17,.08)}
     .product-search-results{padding:4px 24px 22px}.product-search-result{display:grid;grid-template-columns:110px 1fr auto;gap:18px;align-items:center;padding:15px 0;border-bottom:1px solid rgba(21,20,17,.08);color:#151411;text-decoration:none}
     .product-search-result .r-sku{font:650 9px/1 Inter,Arial,sans-serif;letter-spacing:.14em}.product-search-result .r-name{font:400 18px/1.2 "Playfair Display",Georgia,serif}.product-search-result .r-series{font:600 8px/1 Inter,Arial,sans-serif;letter-spacing:.12em;color:#77736c}.product-search-empty{padding:28px 0;color:#77736c;font-size:13px}
+    .product-card.search-target{outline:1px solid rgba(31,90,54,.55)!important;outline-offset:3px;box-shadow:0 18px 42px rgba(31,90,54,.14)!important}
     @media(max-width:1380px){body>.shell .product-quote-link{padding:0 8px;font-size:7px;letter-spacing:.08em}body>.shell .product-search-link{font-size:7px;letter-spacing:.08em}.product-search-result{grid-template-columns:92px 1fr}}
     @media(max-width:1120px){body>.shell .top{grid-template-columns:auto auto!important}body>.shell .preview-nav{grid-column:1/-1!important;grid-row:2!important;overflow-x:auto!important}body>.shell .tools{grid-column:2!important;grid-row:1!important}.product-quote-link{display:inline-flex!important}}
     @media(max-width:720px){.product-quote-link{font-size:0!important;width:32px!important;padding:0!important}.product-quote-link::after{content:'QUOTE';font-size:6px;letter-spacing:.06em}.product-search-head{grid-template-columns:1fr auto}.product-search-title{grid-column:1/-1}.product-search-result{grid-template-columns:80px 1fr}.product-search-result .r-series{display:none}}
@@ -77,12 +78,38 @@
     if(!term){results.innerHTML='';meta.textContent='';return}
     const found=allProducts().filter(x=>(x.sku+' '+x.name).toLowerCase().includes(term));
     meta.textContent=c.results(found.length);
-    results.innerHTML=found.length?found.map(x=>`<a class="product-search-result" href="#vz-${x.k.toLowerCase()}" data-series="${x.k}"><span class="r-sku">${x.sku}</span><span class="r-name">${x.name}</span><span class="r-series">VZ-${x.k}</span></a>`).join(''):`<div class="product-search-empty">${c.empty}</div>`;
+    results.innerHTML=found.length?found.map(x=>`<a class="product-search-result" href="#vz-${x.k.toLowerCase()}" data-series="${x.k}" data-sku="${x.sku}"><span class="r-sku">${x.sku}</span><span class="r-name">${x.name}</span><span class="r-series">VZ-${x.k}</span></a>`).join(''):`<div class="product-search-empty">${c.empty}</div>`;
   }
   function openSearch(){updateLabels();overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>input.focus(),20)}
   function closeSearch(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+  function focusProduct(series,sku){
+    if(typeof openSeries==='function') openSeries(series,currentLang(),true);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      const rail=document.querySelector('.product-rail');
+      if(!rail) return;
+      const target=[...rail.querySelectorAll('.product-card')].find(card=>card.querySelector('.sku')?.textContent.trim()===sku);
+      if(!target) return;
+      document.getElementById('series-stage')?.scrollIntoView({behavior:'smooth',block:'start'});
+      const left=target.offsetLeft-(rail.clientWidth-target.offsetWidth)/2;
+      rail.scrollTo({left:Math.max(0,left),behavior:'smooth'});
+      document.querySelectorAll('.product-card.search-target').forEach(card=>card.classList.remove('search-target'));
+      target.classList.add('search-target');
+      target.setAttribute('tabindex','-1');
+      setTimeout(()=>target.focus({preventScroll:true}),350);
+      setTimeout(()=>target.classList.remove('search-target'),2600);
+    }));
+  }
   searchBtn.addEventListener('click',openSearch); close.addEventListener('click',closeSearch); input.addEventListener('input',()=>runSearch(input.value));
-  overlay.addEventListener('click',e=>{if(e.target===overlay)closeSearch();const r=e.target.closest('.product-search-result');if(r){closeSearch();if(typeof openSeries==='function'){openSeries(r.dataset.series,currentLang(),true);document.getElementById('series-stage')?.scrollIntoView({behavior:'smooth',block:'start'})}}});
+  overlay.addEventListener('click',e=>{
+    if(e.target===overlay) closeSearch();
+    const r=e.target.closest('.product-search-result');
+    if(r){
+      e.preventDefault();
+      const series=r.dataset.series, sku=r.dataset.sku;
+      closeSearch();
+      focusProduct(series,sku);
+    }
+  });
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))closeSearch()});
   select.addEventListener('change',()=>setTimeout(updateLabels,0));
   new MutationObserver(updateLabels).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
