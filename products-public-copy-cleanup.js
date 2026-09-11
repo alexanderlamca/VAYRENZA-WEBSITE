@@ -11,7 +11,6 @@
   };
   Object.entries(x).forEach(([l,v])=>{if(copy[l])Object.assign(copy[l],v)});
 
-  /* Keep the approved Japanese SKU naming exact. */
   if(typeof products!=='undefined'&&products.T?.ja)products.T.ja[4]='ダブルバートラウザーハンガー';
 
   document.title='VAYRENZA GLOBAL — 2026 Product Collection';
@@ -26,10 +25,21 @@
   document.documentElement.lang=l;
 
   const brand=document.querySelector('a.brand');
-  if(brand){
-    brand.setAttribute('href',`index.html?lang=${encodeURIComponent(l)}`);
-    brand.addEventListener('click',()=>localStorage.setItem('vayrenza-language',l),{capture:true});
-  }
+  const getCurrentLanguage=()=>{
+    const selected=sel?.value;
+    const doc=document.documentElement.lang;
+    const stored=localStorage.getItem('vayrenza-language');
+    return supported.has(selected)?selected:(supported.has(doc)?doc:(supported.has(stored)?stored:'en'));
+  };
+  const syncBrand=()=>{
+    if(!brand)return;
+    const lang=getCurrentLanguage();
+    brand.setAttribute('href',`index.html?lang=${encodeURIComponent(lang)}`);
+  };
+  syncBrand();
+  if(sel)sel.addEventListener('change',()=>setTimeout(syncBrand,0));
+  new MutationObserver(syncBrand).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  if(brand)brand.addEventListener('click',()=>localStorage.setItem('vayrenza-language',getCurrentLanguage()),{capture:true});
 
   const expected={S:18,T:14,P:16,K:10};
   const langs=['en','es','fr','de','zh-CN','ja','ko'];
