@@ -153,6 +153,16 @@
       activateResult({k:r.dataset.series,sku:r.dataset.sku});
     }
   });
+
+  document.addEventListener('click',e=>{
+    const info=e.target.closest('.product-card.has-image .product-info');
+    if(!info) return;
+    const card=info.closest('.product-card.has-image');
+    const visual=card?.querySelector('.product-visual');
+    if(!visual || typeof openModal!=='function') return;
+    openModal(visual.dataset.full,`${visual.dataset.sku} · ${visual.dataset.name}`);
+  });
+
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))closeSearch()});
   select.addEventListener('change',()=>setTimeout(updateLabels,0));
   new MutationObserver(updateLabels).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
