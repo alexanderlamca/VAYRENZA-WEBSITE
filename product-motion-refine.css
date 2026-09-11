@@ -101,3 +101,11 @@ body > .shell .series-stage{
   }
   body > .shell .product-visual{height:156px !important}
 }
+
+/* Stronger visual confirmation for search-selected SKU */
+body > .shell .product-card.search-target{
+  outline:3px solid rgba(54,176,94,.96) !important;
+  outline-offset:4px !important;
+  border-color:rgba(54,176,94,.98) !important;
+  box-shadow:0 0 0 2px rgba(120,255,164,.24),0 16px 38px rgba(31,90,54,.24) !important;
+}
