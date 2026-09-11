@@ -9,10 +9,16 @@
     ko:{headline:'58 SKUs. 하나의 일관된 시스템.',intro:'용도에 맞게 설계된 58가지 행거 솔루션을 4개의 명확한 시리즈로 구성했습니다.',kTitle:'키즈 & 주니어',kBody:'아동 의류에 맞는 구조로 작은 의류를 보호하고 컬렉션을 정돈된 상태로 전시합니다.'}
   };
   const supported=new Set(['en','es','fr','de','zh-CN','ja','ko']);
+  const queryLang=new URLSearchParams(location.search).get('lang');
+  if(supported.has(queryLang)){
+    localStorage.setItem('vayrenza-language',queryLang);
+    document.documentElement.lang=queryLang;
+  }
   function currentLang(){
+    const q=new URLSearchParams(location.search).get('lang');
     const doc=document.documentElement.lang;
     const stored=localStorage.getItem('vayrenza-language');
-    return supported.has(doc)?doc:(supported.has(stored)?stored:'en');
+    return supported.has(q)?q:(supported.has(doc)?doc:(supported.has(stored)?stored:'en'));
   }
   function syncProductLinks(lang){
     if(!supported.has(lang))lang='en';
@@ -32,6 +38,8 @@
   }
   function apply(){
     const lang=currentLang(),c=copy[lang]||copy.en;
+    localStorage.setItem('vayrenza-language',lang);
+    if(document.documentElement.lang!==lang)document.documentElement.lang=lang;
     document.querySelectorAll('[data-home58]').forEach(el=>{const key=el.dataset.home58;if(c[key])el.textContent=c[key]});
     syncProductLinks(lang);
     syncHomeLogo(lang);
