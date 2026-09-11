@@ -61,5 +61,14 @@
     const c=copy[lang]||copy.en;document.documentElement.lang=lang;document.querySelectorAll('[data-t]').forEach(el=>el.innerHTML=c[el.dataset.t]||'');document.querySelectorAll('[data-nav]').forEach(el=>el.textContent=c.nav[Number(el.dataset.nav)]);renderArchitecture(lang);activeKey=keyFromHash()||activeKey;const keys=['S','T','P','K'],wrap=document.getElementById('collections');wrap.innerHTML=`<div class="series-tabs" role="tablist">${keys.map((k,si)=>`<button class="series-tab" id="tab-${k}" role="tab" aria-controls="panel-${k}" aria-selected="${activeKey===k}" data-series="${k}"><div class="series-index">0${si+1}</div><div class="series-code">VZ-${k} SERIES</div><h2 class="series-title">${c.series[si]}</h2><span class="series-count">${products[k].count} SKUs</span></button>`).join('')}</div><div class="series-stage" id="series-stage"></div>`;wrap.querySelectorAll('.series-tab').forEach(btn=>btn.addEventListener('click',()=>openSeries(btn.dataset.series,lang,true)));openSeries(activeKey,lang,false);localStorage.setItem('vayrenza-language',lang)
   };
 
-  const lang=document.getElementById('lang')?.value||localStorage.getItem('vayrenza-language')||'en';render(copy[lang]?lang:'en');
+  const supported=new Set(['en','es','fr','de','zh-CN','ja','ko']);
+  let lang=window.__VZ_INITIAL_LANG__||document.getElementById('lang')?.value||localStorage.getItem('vayrenza-language')||'en';
+  if(!supported.has(lang))lang='en';
+  if(copy[lang])render(lang);
+  else{
+    document.documentElement.lang=lang;
+    localStorage.setItem('vayrenza-language',lang);
+    const sel=document.getElementById('lang');if(sel)sel.value=lang;
+    window.__VZ_PENDING_LANG__=lang;
+  }
 })();
