@@ -1,0 +1,63 @@
+/* VAYRENZA homepage 58-SKU / four-series refinement */
+#products .home-series-cards{
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:14px !important;
+}
+#products .home-series-cards article{
+  min-height:260px !important;
+  padding:34px 30px 32px !important;
+  border:1px solid rgba(45,41,34,.18) !important;
+  border-radius:0 !important;
+  background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(248,245,239,.46)) !important;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px) !important;
+  overflow:hidden;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.18);
+  transition:transform .34s cubic-bezier(.2,.76,.2,1),background .34s ease,border-color .34s ease,box-shadow .34s ease !important;
+}
+#products .home-series-cards article::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 auto 0 0 !important;
+  width:3px !important;
+  height:auto !important;
+  background:#1F5A36 !important;
+  transform:scaleY(.22) !important;
+  transform-origin:top !important;
+  transition:transform .34s ease !important;
+}
+#products .home-series-cards article::after{
+  content:"";
+  position:absolute;
+  right:10px;
+  bottom:0;
+  width:34px;
+  height:1px;
+  background:rgba(31,90,54,.34);
+  transition:width .34s ease,background-color .34s ease;
+}
+#products .home-series-cards article:hover{
+  transform:translateY(-4px) !important;
+  background:linear-gradient(145deg,rgba(255,255,255,.42),rgba(248,245,239,.7)) !important;
+  border-color:rgba(31,90,54,.34) !important;
+  box-shadow:0 14px 28px rgba(24,22,18,.06),inset 0 0 0 1px rgba(31,90,54,.04) !important;
+}
+#products .home-series-cards article:hover::before{transform:scaleY(1) !important}
+#products .home-series-cards article:hover::after{width:54px;background:rgba(31,90,54,.78)}
+#products .home-series-cards span{color:#1F5A36 !important}
+#products .home-series-cards h3{margin-top:30px !important}
+#products .home-series-count{
+  position:absolute;
+  left:30px;
+  bottom:24px;
+  z-index:1;
+  font:500 8px/1.2 Inter,Arial,sans-serif;
+  letter-spacing:.17em;
+  color:#77736c;
+}
+@media(max-width:1180px){
+  #products .home-series-cards{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+}
+@media(max-width:800px){
+  #products .home-series-cards{grid-template-columns:1fr !important;gap:15px !important}
+  #products .home-series-cards article{min-height:220px !important;clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px) !important}
+}
