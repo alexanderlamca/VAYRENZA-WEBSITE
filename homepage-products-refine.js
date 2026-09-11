@@ -10,5 +10,5 @@
   };
   function apply(){const lang=document.documentElement.lang||'en',c=copy[lang]||copy.en;document.querySelectorAll('[data-home58]').forEach(el=>{const key=el.dataset.home58;if(c[key])el.textContent=c[key]})}
   apply();new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
-  const s=document.createElement('script');s.src='customer-value-copy-v1.js';document.head.appendChild(s);
+  const s=document.createElement('script');s.src='customer-value-copy-v1.js';s.onload=()=>{const j=document.createElement('script');j.src='homepage-ja-ko.js';document.head.appendChild(j)};document.head.appendChild(s);
 })();
