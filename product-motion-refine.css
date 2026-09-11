@@ -1,97 +1,103 @@
 /* VAYRENZA 48-SKU compact showroom motion refinement */
 body > .shell .product-rail{
-  grid-auto-columns:minmax(172px,205px) !important;
-  gap:9px !important;
-  padding:40px 52px 46px !important;
-  margin-top:-18px !important;
-  margin-bottom:-24px !important;
-  perspective:1700px !important;
-  scroll-padding-inline:52px !important;
+  grid-auto-columns:minmax(166px,196px) !important;
+  gap:8px !important;
+  padding:38px 54px 44px !important;
+  margin-top:-17px !important;
+  margin-bottom:-23px !important;
+  perspective:1750px !important;
+  scroll-padding-inline:54px !important;
 }
 body > .shell .product-card{
-  min-height:156px !important;
+  min-height:150px !important;
   will-change:transform;
-  transition:transform .68s cubic-bezier(.2,.76,.2,1),opacity .54s ease,background-color .4s ease,border-color .4s ease,box-shadow .54s ease,filter .54s ease !important;
+  transition:transform .7s cubic-bezier(.2,.76,.2,1),opacity .56s ease,background-color .42s ease,border-color .42s ease,box-shadow .56s ease,filter .56s ease !important;
 }
 body > .shell .product-card.has-image{
-  height:300px !important;
-  min-height:300px !important;
+  height:288px !important;
+  min-height:288px !important;
 }
 body > .shell .product-visual{
-  height:164px !important;
+  position:relative !important;
+  z-index:1 !important;
+  height:156px !important;
 }
 body > .shell .product-info{
-  padding:10px 13px 10px !important;
+  position:relative !important;
+  z-index:3 !important;
+  pointer-events:auto !important;
+  padding:9px 12px 9px !important;
   cursor:default !important;
+  background:#f8f5ef !important;
 }
 body > .shell .sku{
-  font-size:8px !important;
-  margin-bottom:7px !important;
+  font-size:7.7px !important;
+  margin-bottom:6px !important;
 }
 body > .shell .product-card h3{
-  font-size:16.5px !important;
-  line-height:1.08 !important;
+  font-size:15.8px !important;
+  line-height:1.07 !important;
 }
 body > .shell .product-benefit{
-  margin-top:5px !important;
-  font-size:8.8px !important;
-  line-height:1.34 !important;
+  margin-top:4px !important;
+  font-size:8.4px !important;
+  line-height:1.32 !important;
 }
 body > .shell .product-card.has-image .state{
-  margin-top:5px !important;
-  font-size:7px !important;
+  margin-top:4px !important;
+  font-size:6.8px !important;
 }
 body > .shell .series-stage{
-  perspective:1700px !important;
+  perspective:1750px !important;
   perspective-origin:50% 50% !important;
 }
 
 @media (hover:hover) and (pointer:fine){
   body > .shell .product-rail:hover .product-card{
-    opacity:.88 !important;
-    filter:saturate(.97) !important;
+    opacity:.9 !important;
+    filter:saturate(.98) !important;
   }
   body > .shell .product-rail .product-card:has(~ .product-card:hover){
-    transform:translateX(12px) translateZ(-64px) rotateY(27deg) scale(.91) !important;
-    opacity:.82 !important;
+    transform:translateX(10px) translateZ(-56px) rotateY(24deg) scale(.92) !important;
+    opacity:.84 !important;
   }
   body > .shell .product-rail .product-card:hover ~ .product-card{
-    transform:translateX(-12px) translateZ(-64px) rotateY(-27deg) scale(.91) !important;
-    opacity:.82 !important;
+    transform:translateX(-10px) translateZ(-56px) rotateY(-24deg) scale(.92) !important;
+    opacity:.84 !important;
   }
   body > .shell .product-rail .product-card:has(+ .product-card + .product-card:hover){
-    transform:translateX(7px) translateZ(-38px) rotateY(19deg) scale(.945) !important;
-    opacity:.89 !important;
+    transform:translateX(6px) translateZ(-33px) rotateY(17deg) scale(.95) !important;
+    opacity:.9 !important;
   }
   body > .shell .product-rail .product-card:hover + .product-card + .product-card{
-    transform:translateX(-7px) translateZ(-38px) rotateY(-19deg) scale(.945) !important;
-    opacity:.89 !important;
+    transform:translateX(-6px) translateZ(-33px) rotateY(-17deg) scale(.95) !important;
+    opacity:.9 !important;
   }
   body > .shell .product-rail .product-card:has(+ .product-card:hover){
-    transform:translateX(3px) translateZ(-17px) rotateY(11deg) scale(.975) !important;
-    opacity:.96 !important;
+    transform:translateX(2px) translateZ(-14px) rotateY(9deg) scale(.98) !important;
+    opacity:.97 !important;
   }
   body > .shell .product-rail .product-card:hover + .product-card{
-    transform:translateX(-3px) translateZ(-17px) rotateY(-11deg) scale(.975) !important;
-    opacity:.96 !important;
+    transform:translateX(-2px) translateZ(-14px) rotateY(-9deg) scale(.98) !important;
+    opacity:.97 !important;
   }
   body > .shell .product-rail .product-card:hover{
-    transform:translateZ(30px) translateY(-3px) scale(1.035) !important;
+    transform:translateZ(26px) translateY(-2px) scale(1.028) !important;
     opacity:1 !important;
     filter:none !important;
-    box-shadow:0 14px 28px rgba(24,22,18,.09) !important;
+    box-shadow:0 12px 24px rgba(24,22,18,.08) !important;
   }
 }
 
 @media(max-width:720px){
   body > .shell .product-rail{
-    grid-auto-columns:minmax(190px,68vw) !important;
-    padding:30px 18px 34px !important;
-    gap:10px !important;
+    grid-auto-columns:minmax(184px,66vw) !important;
+    padding:28px 18px 32px !important;
+    gap:9px !important;
   }
   body > .shell .product-card.has-image{
-    height:296px !important;
-    min-height:296px !important;
+    height:284px !important;
+    min-height:284px !important;
   }
-  body > .shell .product-visual{height:164px !important}
+  body > .shell .product-visual{height:156px !important}
 }
