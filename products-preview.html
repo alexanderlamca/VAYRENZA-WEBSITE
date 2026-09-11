@@ -48,4 +48,6 @@ function openSeries(k,lang,updateHash){activeKey=k;const c=copy[lang]||copy.en,p
 function bindImagePreview(){document.querySelectorAll('.product-visual').forEach(el=>{const open=()=>openModal(el.dataset.full,`${el.dataset.sku} · ${el.dataset.name}`);el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})})}
 const modal=document.getElementById('image-modal'),modalImage=document.getElementById('modal-image'),modalCaption=document.getElementById('modal-caption');function openModal(src,caption){modalImage.src=src;modalImage.alt=caption;modalCaption.textContent=caption;modal.classList.add('open');document.body.style.overflow='hidden'}function closeModal(){modal.classList.remove('open');modalImage.src='';document.body.style.overflow=''}document.getElementById('modal-close').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal()});
 const sel=document.getElementById('lang');let saved=localStorage.getItem('vayrenza-language');if(!copy[saved])saved='en';sel.value=saved;sel.addEventListener('change',()=>render(sel.value));window.addEventListener('hashchange',()=>{const k=keyFromHash();if(k)openSeries(k,sel.value,false)});render(saved);
-</script></body></html>
+</script>
+<script src="products-tools.js"></script>
+</body></html>
