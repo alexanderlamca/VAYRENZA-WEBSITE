@@ -25,6 +25,12 @@
   localStorage.setItem('vayrenza-language',l);
   document.documentElement.lang=l;
 
+  const brand=document.querySelector('a.brand');
+  if(brand){
+    brand.setAttribute('href',`index.html?lang=${encodeURIComponent(l)}`);
+    brand.addEventListener('click',()=>localStorage.setItem('vayrenza-language',l),{capture:true});
+  }
+
   const expected={S:18,T:14,P:16,K:10};
   const langs=['en','es','fr','de','zh-CN','ja','ko'];
   window.__VZ_I18N_AUDIT__={
