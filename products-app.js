@@ -110,7 +110,12 @@
       overlay=document.createElement('div');overlay.className='product-search-overlay';overlay.innerHTML='<div class="product-search-panel"><div class="product-search-head"><span class="product-search-title"></span><input class="product-search-input" type="search" autocomplete="off"><button class="product-search-close" type="button"></button></div><div class="product-search-meta"></div><div class="product-search-results"></div></div>';document.body.appendChild(overlay);
       overlay.querySelector('.product-search-close').addEventListener('click',closeSearch);
       overlay.addEventListener('click',e=>{if(e.target===overlay)closeSearch();const r=e.target.closest('.product-search-result');if(r){e.preventDefault();closeSearch();focusProduct(r.dataset.series,r.dataset.sku);}});
-      const input=overlay.querySelector('.product-search-input');input.addEventListener('input',()=>runSearch(input.value));input.addEventListener('keydown',e=>{if(e.key==='Enter'){const first=overlay.querySelector('.product-search-result');if(first){e.preventDefault();first.click();}}});
+      const input=overlay.querySelector('.product-search-input');
+      let composing=false;
+      input.addEventListener('compositionstart',()=>{composing=true;});
+      input.addEventListener('compositionend',()=>{composing=false;runSearch(input.value);});
+      input.addEventListener('input',e=>{if(!composing&&!e.isComposing)runSearch(input.value);});
+      input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.isComposing&&!composing){const first=overlay.querySelector('.product-search-result');if(first){e.preventDefault();first.click();}}});
     }
     const c=text();overlay.querySelector('.product-search-title').textContent=c.searchTitle;overlay.querySelector('.product-search-input').placeholder=c.placeholder;overlay.querySelector('.product-search-close').textContent=c.close;
   }
@@ -118,10 +123,14 @@
   function allProducts(){
     return DATA.order.flatMap(k=>productNames(k).map((name,i)=>({k,sku:DATA.sku(k,i),name})));
   }
+  function normalizeSearch(value){
+    const locale=lang==='ja'?'ja-JP':lang==='ko'?'ko-KR':undefined;
+    return String(value||'').normalize('NFKC').trim().toLocaleLowerCase(locale);
+  }
   function runSearch(raw){
-    const overlay=document.querySelector('.product-search-overlay'),q=raw.trim().toLowerCase(),c=text(),results=overlay.querySelector('.product-search-results'),meta=overlay.querySelector('.product-search-meta');
+    const overlay=document.querySelector('.product-search-overlay'),q=normalizeSearch(raw),c=text(),results=overlay.querySelector('.product-search-results'),meta=overlay.querySelector('.product-search-meta');
     if(!q){meta.textContent='';results.innerHTML='';return;}
-    const found=allProducts().filter(x=>(`${x.sku} ${x.name}`).toLowerCase().includes(q));
+    const found=allProducts().filter(x=>normalizeSearch(`${x.sku} ${x.name}`).includes(q));
     meta.textContent=c.results(found.length);
     results.innerHTML=found.length?found.map(x=>`<a class="product-search-result" href="#vz-${x.k.toLowerCase()}" data-series="${x.k}" data-sku="${x.sku}"><span class="r-sku">${x.sku}</span><span class="r-name">${escapeHtml(x.name)}</span><span class="r-series">VZ-${x.k}</span></a>`).join(''):`<div class="product-search-empty">${c.empty}</div>`;
   }
