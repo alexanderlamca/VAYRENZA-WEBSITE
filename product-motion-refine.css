@@ -27,7 +27,7 @@ body > .shell .product-info{
   z-index:3 !important;
   pointer-events:auto !important;
   padding:9px 12px 9px !important;
-  cursor:default !important;
+  cursor:zoom-in !important;
   background:#f8f5ef !important;
 }
 body > .shell .sku{
@@ -58,31 +58,31 @@ body > .shell .series-stage{
     filter:saturate(.98) !important;
   }
   body > .shell .product-rail .product-card:has(~ .product-card:hover){
-    transform:translateX(10px) translateZ(-56px) rotateY(24deg) scale(.92) !important;
+    transform:translateX(10px) translateZ(-84px) rotateY(24deg) scale(.92) !important;
     opacity:.84 !important;
   }
   body > .shell .product-rail .product-card:hover ~ .product-card{
-    transform:translateX(-10px) translateZ(-56px) rotateY(-24deg) scale(.92) !important;
+    transform:translateX(-10px) translateZ(-84px) rotateY(-24deg) scale(.92) !important;
     opacity:.84 !important;
   }
   body > .shell .product-rail .product-card:has(+ .product-card + .product-card:hover){
-    transform:translateX(6px) translateZ(-33px) rotateY(17deg) scale(.95) !important;
+    transform:translateX(6px) translateZ(-50px) rotateY(17deg) scale(.95) !important;
     opacity:.9 !important;
   }
   body > .shell .product-rail .product-card:hover + .product-card + .product-card{
-    transform:translateX(-6px) translateZ(-33px) rotateY(-17deg) scale(.95) !important;
+    transform:translateX(-6px) translateZ(-50px) rotateY(-17deg) scale(.95) !important;
     opacity:.9 !important;
   }
   body > .shell .product-rail .product-card:has(+ .product-card:hover){
-    transform:translateX(2px) translateZ(-14px) rotateY(9deg) scale(.98) !important;
+    transform:translateX(2px) translateZ(-21px) rotateY(9deg) scale(.98) !important;
     opacity:.97 !important;
   }
   body > .shell .product-rail .product-card:hover + .product-card{
-    transform:translateX(-2px) translateZ(-14px) rotateY(-9deg) scale(.98) !important;
+    transform:translateX(-2px) translateZ(-21px) rotateY(-9deg) scale(.98) !important;
     opacity:.97 !important;
   }
   body > .shell .product-rail .product-card:hover{
-    transform:translateZ(26px) translateY(-2px) scale(1.028) !important;
+    transform:translateZ(39px) translateY(-2px) scale(1.028) !important;
     opacity:1 !important;
     filter:none !important;
     box-shadow:0 12px 24px rgba(24,22,18,.08) !important;
