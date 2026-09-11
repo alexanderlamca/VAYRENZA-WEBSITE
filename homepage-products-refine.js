@@ -9,6 +9,11 @@
     ko:{headline:'58 SKUs. 하나의 일관된 시스템.',intro:'용도에 맞게 설계된 58가지 행거 솔루션을 4개의 명확한 시리즈로 구성했습니다.',kTitle:'키즈 & 주니어',kBody:'아동 의류에 맞는 구조로 작은 의류를 보호하고 컬렉션을 정돈된 상태로 전시합니다.'}
   };
   const supported=new Set(['en','es','fr','de','zh-CN','ja','ko']);
+  function currentLang(){
+    const doc=document.documentElement.lang;
+    const stored=localStorage.getItem('vayrenza-language');
+    return supported.has(doc)?doc:(supported.has(stored)?stored:'en');
+  }
   function syncProductLinks(lang){
     if(!supported.has(lang))lang='en';
     document.querySelectorAll('a[href*="products-preview.html"]').forEach(a=>{
@@ -17,11 +22,27 @@
       a.setAttribute('href',`products-preview.html?lang=${encodeURIComponent(lang)}${hash}`);
     });
   }
+  function syncHomeLogo(lang){
+    if(!supported.has(lang))lang='en';
+    const logo=document.querySelector('a.brand.brand-logo');
+    if(logo){
+      logo.setAttribute('href',`index.html?lang=${encodeURIComponent(lang)}`);
+      logo.dataset.vzLanguageHome='true';
+    }
+  }
   function apply(){
-    const lang=document.documentElement.lang||localStorage.getItem('vayrenza-language')||'en',c=copy[lang]||copy.en;
+    const lang=currentLang(),c=copy[lang]||copy.en;
     document.querySelectorAll('[data-home58]').forEach(el=>{const key=el.dataset.home58;if(c[key])el.textContent=c[key]});
     syncProductLinks(lang);
+    syncHomeLogo(lang);
   }
+  document.addEventListener('click',e=>{
+    const logo=e.target.closest('a.brand.brand-logo');
+    if(!logo)return;
+    const lang=currentLang();
+    localStorage.setItem('vayrenza-language',lang);
+    logo.setAttribute('href',`index.html?lang=${encodeURIComponent(lang)}`);
+  },true);
   apply();
   new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   const s=document.createElement('script');s.src='customer-value-copy-v1.js';s.onload=()=>{const j=document.createElement('script');j.src='homepage-ja-ko.js';j.onload=apply;document.head.appendChild(j)};document.head.appendChild(s);
