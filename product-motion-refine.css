@@ -1,4 +1,4 @@
-/* VAYRENZA 48-SKU compact showroom motion refinement */
+/* VAYRENZA 58-SKU compact showroom motion refinement */
 body > .shell .product-rail{
   grid-auto-columns:minmax(166px,196px) !important;
   gap:8px !important;
@@ -10,17 +10,47 @@ body > .shell .product-rail{
 }
 body > .shell .product-card{
   min-height:150px !important;
+  position:relative !important;
   will-change:transform;
+  border:1px solid rgba(45,41,34,.18) !important;
+  border-radius:0 !important;
+  background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(248,245,239,.72)) !important;
+  clip-path:polygon(9px 0,100% 0,100% calc(100% - 9px),calc(100% - 9px) 100%,0 100%,0 9px) !important;
   transition:transform .7s cubic-bezier(.2,.76,.2,1),opacity .56s ease,background-color .42s ease,border-color .42s ease,box-shadow .56s ease,filter .56s ease !important;
+}
+body > .shell .product-card::before,
+body > .shell .product-card::after{
+  content:"";
+  position:absolute;
+  z-index:8;
+  pointer-events:none;
+  opacity:.42;
+  transition:opacity .42s ease,background-color .42s ease,transform .42s ease;
+}
+body > .shell .product-card::before{
+  top:0;
+  left:9px;
+  width:22px;
+  height:1px;
+  background:rgba(31,90,54,.58);
+}
+body > .shell .product-card::after{
+  right:9px;
+  bottom:0;
+  width:22px;
+  height:1px;
+  background:rgba(31,90,54,.58);
 }
 body > .shell .product-card.has-image{
   height:288px !important;
   min-height:288px !important;
+  overflow:hidden !important;
 }
 body > .shell .product-visual{
   position:relative !important;
   z-index:1 !important;
   height:156px !important;
+  border-bottom:1px solid rgba(45,41,34,.09) !important;
 }
 body > .shell .product-info{
   position:relative !important;
@@ -28,11 +58,12 @@ body > .shell .product-info{
   pointer-events:auto !important;
   padding:9px 12px 9px !important;
   cursor:zoom-in !important;
-  background:#f8f5ef !important;
+  background:linear-gradient(180deg,rgba(250,247,241,.98),#f8f5ef) !important;
 }
 body > .shell .sku{
   font-size:7.7px !important;
   margin-bottom:6px !important;
+  letter-spacing:.19em !important;
 }
 body > .shell .product-card h3{
   font-size:15.8px !important;
@@ -43,13 +74,54 @@ body > .shell .product-benefit{
   font-size:8.4px !important;
   line-height:1.32 !important;
 }
+body > .shell .product-benefit::before{
+  width:13px !important;
+  background:#1F5A36 !important;
+  opacity:.82 !important;
+}
 body > .shell .product-card.has-image .state{
   margin-top:4px !important;
   font-size:6.8px !important;
+  letter-spacing:.16em !important;
 }
 body > .shell .series-stage{
   perspective:1750px !important;
   perspective-origin:50% 50% !important;
+}
+
+/* VAYRENZA Refined Card System — series architecture */
+body > .shell .series-tab{
+  position:relative !important;
+  border:1px solid rgba(45,41,34,.17) !important;
+  border-radius:0 !important;
+  clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px) !important;
+  background:linear-gradient(145deg,rgba(255,255,255,.24),rgba(248,245,239,.46)) !important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.22) !important;
+}
+body > .shell .series-tab::before{
+  width:3px !important;
+  background:#1F5A36 !important;
+}
+body > .shell .series-tab::after{
+  content:"";
+  position:absolute;
+  right:10px;
+  bottom:0;
+  width:34px;
+  height:1px;
+  background:rgba(31,90,54,.34);
+  pointer-events:none;
+  transition:width .32s ease,background-color .32s ease;
+}
+body > .shell .series-tab:hover::after,
+body > .shell .series-tab[aria-selected="true"]::after{
+  width:54px;
+  background:rgba(31,90,54,.78);
+}
+body > .shell .series-tab[aria-selected="true"]{
+  border-color:rgba(31,90,54,.34) !important;
+  background:linear-gradient(145deg,rgba(255,255,255,.44),rgba(247,244,237,.74)) !important;
+  box-shadow:inset 0 0 0 1px rgba(31,90,54,.05) !important;
 }
 
 @media (hover:hover) and (pointer:fine){
@@ -85,7 +157,13 @@ body > .shell .series-stage{
     transform:translateZ(39px) translateY(-2px) scale(1.028) !important;
     opacity:1 !important;
     filter:none !important;
-    box-shadow:0 12px 24px rgba(24,22,18,.08) !important;
+    border-color:rgba(31,90,54,.64) !important;
+    box-shadow:0 12px 24px rgba(24,22,18,.08),inset 0 0 0 1px rgba(31,90,54,.08) !important;
+  }
+  body > .shell .product-rail .product-card:hover::before,
+  body > .shell .product-rail .product-card:hover::after{
+    opacity:1;
+    background:#1F5A36;
   }
 }
 
@@ -95,17 +173,27 @@ body > .shell .series-stage{
     padding:28px 18px 32px !important;
     gap:9px !important;
   }
+  body > .shell .product-card{
+    clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px) !important;
+  }
   body > .shell .product-card.has-image{
     height:284px !important;
     min-height:284px !important;
   }
   body > .shell .product-visual{height:156px !important}
+  body > .shell .series-tab{
+    clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px) !important;
+  }
 }
 
-/* Stronger visual confirmation for search-selected SKU */
+/* Strong visual confirmation for search-selected SKU — preserved and adapted to cut-corner frame */
 body > .shell .product-card.search-target{
-  outline:3px solid rgba(54,176,94,.96) !important;
-  outline-offset:4px !important;
+  outline:none !important;
   border-color:rgba(54,176,94,.98) !important;
-  box-shadow:0 0 0 2px rgba(120,255,164,.24),0 16px 38px rgba(31,90,54,.24) !important;
+  box-shadow:inset 0 0 0 2px rgba(54,176,94,.92),0 0 0 2px rgba(120,255,164,.18),0 16px 38px rgba(31,90,54,.24) !important;
+}
+body > .shell .product-card.search-target::before,
+body > .shell .product-card.search-target::after{
+  opacity:1 !important;
+  background:rgba(54,176,94,.98) !important;
 }
