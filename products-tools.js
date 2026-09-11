@@ -73,15 +73,20 @@
     });
     return rows;
   }
+  function getMatches(q){
+    const term=q.trim().toLowerCase();
+    if(!term) return [];
+    return allProducts().filter(x=>(x.sku+' '+x.name).toLowerCase().includes(term));
+  }
   function runSearch(q){
-    const c=copyFor(), term=q.trim().toLowerCase();
-    if(!term){results.innerHTML='';meta.textContent='';return}
-    const found=allProducts().filter(x=>(x.sku+' '+x.name).toLowerCase().includes(term));
+    const c=copyFor(), found=getMatches(q);
+    if(!q.trim()){results.innerHTML='';meta.textContent='';return}
     meta.textContent=c.results(found.length);
     results.innerHTML=found.length?found.map(x=>`<a class="product-search-result" href="#vz-${x.k.toLowerCase()}" data-series="${x.k}" data-sku="${x.sku}"><span class="r-sku">${x.sku}</span><span class="r-name">${x.name}</span><span class="r-series">VZ-${x.k}</span></a>`).join(''):`<div class="product-search-empty">${c.empty}</div>`;
   }
   function openSearch(){updateLabels();overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';setTimeout(()=>input.focus(),20)}
   function closeSearch(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true');document.body.style.overflow=''}
+
   function focusProduct(series,sku){
     if(typeof openSeries==='function') openSeries(series,currentLang(),true);
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
@@ -89,25 +94,58 @@
       if(!rail) return;
       const target=[...rail.querySelectorAll('.product-card')].find(card=>card.querySelector('.sku')?.textContent.trim()===sku);
       if(!target) return;
+
       document.getElementById('series-stage')?.scrollIntoView({behavior:'smooth',block:'start'});
-      const left=target.offsetLeft-(rail.clientWidth-target.offsetWidth)/2;
-      rail.scrollTo({left:Math.max(0,left),behavior:'smooth'});
+
+      const oldSnap=rail.style.scrollSnapType;
+      rail.style.scrollSnapType='none';
+      const exactCenter=()=>{
+        const railRect=rail.getBoundingClientRect();
+        const targetRect=target.getBoundingClientRect();
+        const delta=(targetRect.left+targetRect.width/2)-(railRect.left+railRect.width/2);
+        const max=Math.max(0,rail.scrollWidth-rail.clientWidth);
+        return Math.max(0,Math.min(max,rail.scrollLeft+delta));
+      };
+
+      rail.scrollTo({left:exactCenter(),behavior:'smooth'});
+      setTimeout(()=>{
+        rail.scrollTo({left:exactCenter(),behavior:'auto'});
+        rail.style.scrollSnapType=oldSnap;
+      },520);
+
       document.querySelectorAll('.product-card.search-target').forEach(card=>card.classList.remove('search-target'));
       target.classList.add('search-target');
       target.setAttribute('tabindex','-1');
-      setTimeout(()=>target.focus({preventScroll:true}),350);
-      setTimeout(()=>target.classList.remove('search-target'),2600);
+      setTimeout(()=>target.focus({preventScroll:true}),560);
+      setTimeout(()=>target.classList.remove('search-target'),2800);
     }));
   }
-  searchBtn.addEventListener('click',openSearch); close.addEventListener('click',closeSearch); input.addEventListener('input',()=>runSearch(input.value));
+
+  function activateResult(row){
+    if(!row) return;
+    closeSearch();
+    focusProduct(row.k,row.sku);
+  }
+
+  searchBtn.addEventListener('click',openSearch);
+  close.addEventListener('click',closeSearch);
+  input.addEventListener('input',()=>runSearch(input.value));
+  input.addEventListener('keydown',e=>{
+    if(e.key!=='Enter') return;
+    const found=getMatches(input.value);
+    if(!found.length) return;
+    e.preventDefault();
+    const normalized=input.value.trim().toUpperCase().replace(/\s+/g,'');
+    const exact=found.find(x=>x.sku.replace(/\s+/g,'')===normalized);
+    activateResult(exact||found[0]);
+  });
+
   overlay.addEventListener('click',e=>{
     if(e.target===overlay) closeSearch();
     const r=e.target.closest('.product-search-result');
     if(r){
       e.preventDefault();
-      const series=r.dataset.series, sku=r.dataset.sku;
-      closeSearch();
-      focusProduct(series,sku);
+      activateResult({k:r.dataset.series,sku:r.dataset.sku});
     }
   });
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))closeSearch()});
