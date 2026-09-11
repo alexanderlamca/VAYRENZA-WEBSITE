@@ -4,10 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
-<title>VAYRENZA GLOBAL — 2026 Product Architecture Preview</title>
+<script>
+(() => {
+  const supported=['en','es','fr','de','zh-CN','ja','ko'];
+  const q=new URLSearchParams(location.search).get('lang');
+  const stored=localStorage.getItem('vayrenza-language');
+  const lang=supported.includes(q)?q:(supported.includes(stored)?stored:'en');
+  document.documentElement.lang=lang;
+  document.documentElement.classList.add('vz-i18n-pending');
+  window.__VZ_INITIAL_LANG__=lang;
+})();
+</script>
+<title>VAYRENZA GLOBAL — 2026 Product Collection</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="theme.css">
 <style>
+html.vz-i18n-pending body{visibility:hidden}
 :root{--ink:#151411;--muted:#77736c;--paper:#f4f0e8;--paper-soft:#f8f5ef;--line:rgba(21,20,17,.14);--line-soft:rgba(21,20,17,.08);--green:#1F5A36}
 *{box-sizing:border-box}html{background:var(--paper);scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}.shell{max-width:1480px;margin:0 auto;padding:0 72px 96px}
 .top{min-height:84px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:32px;border-bottom:1px solid #d5cfc4;background:#F3EFE7;position:sticky;top:0;z-index:100;box-shadow:0 0 0 100vmax #F3EFE7;clip-path:inset(0 -100vmax)}
@@ -31,7 +43,7 @@ html[lang="zh-CN"] body{font-family:"Source Han Serif SC","Noto Serif CJK SC","S
 </style>
 </head>
 <body><div class="shell">
-<header class="top"><a class="brand" href="index.html" aria-label="VAYRENZA GLOBAL home"><span>VAYRENZA GLOBAL</span></a><nav class="preview-nav" aria-label="Primary navigation"><a class="active" href="products-preview.html" data-nav="0">PRODUCTS</a><a href="index.html#solutions" data-nav="1">SOLUTIONS</a><a href="index.html#custom" data-nav="2">CUSTOM / OEM</a><a href="index.html#sustainability" data-nav="3">SUSTAINABILITY</a><a href="index.html#about" data-nav="4">ABOUT</a><a href="index.html#insights" data-nav="5">INSIGHTS</a><a href="index.html#contact" data-nav="6">CONTACT</a></nav><div class="tools"><span class="status" data-t="status"></span><select id="lang" aria-label="Language"><option value="en">🇺🇸 EN</option><option value="es">🇪🇸 ES</option><option value="fr">🇫🇷 FR</option><option value="de">🇩🇪 DE</option><option value="zh-CN">🇨🇳 中文</option></select></div></header>
+<header class="top"><a class="brand" href="index.html" aria-label="VAYRENZA GLOBAL home"><span>VAYRENZA GLOBAL</span></a><nav class="preview-nav" aria-label="Primary navigation"><a class="active" href="products-preview.html" data-nav="0">PRODUCTS</a><a href="index.html#solutions" data-nav="1">SOLUTIONS</a><a href="index.html#custom" data-nav="2">CUSTOM / OEM</a><a href="index.html#sustainability" data-nav="3">SUSTAINABILITY</a><a href="index.html#about" data-nav="4">ABOUT</a><a href="index.html#insights" data-nav="5">INSIGHTS</a><a href="index.html#contact" data-nav="6">CONTACT</a></nav><div class="tools"><span class="status" data-t="status"></span><select id="lang" aria-label="Language"><option value="en">🇺🇸 EN</option><option value="es">🇪🇸 ES</option><option value="fr">🇫🇷 FR</option><option value="de">🇩🇪 DE</option><option value="zh-CN">🇨🇳 中文</option><option value="ja">🇯🇵 JA</option><option value="ko">🇰🇷 KO</option></select></div></header>
 <main><section class="hero"><p class="eyebrow" data-t="eyebrow"></p><div class="hero-copy"><h1 data-t="headline"></h1><p class="intro" data-t="intro"></p></div></section><section class="summary"><div><strong>48</strong><span data-t="total"></span></div><div><strong>18</strong><span data-t="sumS"></span></div><div><strong>14</strong><span data-t="sumT"></span></div><div><strong>16</strong><span data-t="sumP"></span></div></section><div id="collections"></div><section class="note"><p class="eyebrow" data-t="rule"></p><div class="note-copy"><h2 data-t="ruleTitle"></h2><p data-t="ruleBody"></p></div></section></main></div>
 <div class="image-modal" id="image-modal" role="dialog" aria-modal="true" aria-label="Product image preview"><button class="modal-close" id="modal-close" aria-label="Close">×</button><img id="modal-image" alt=""><div class="modal-caption" id="modal-caption"></div></div>
 <script>
@@ -47,7 +59,19 @@ function render(lang){const c=copy[lang]||copy.en;document.documentElement.lang=
 function openSeries(k,lang,updateHash){activeKey=k;const c=copy[lang]||copy.en,pk=lang==='zh-CN'?'zh':lang,keys=['S','T','P'],si=keys.indexOf(k),p=products[k];document.querySelectorAll('.series-tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.series===k)));const stage=document.getElementById('series-stage');const cards=p[pk].map((name,i)=>{const sku=`VZ-${k}${String(i+1).padStart(3,'0')}`;if(k==='S'){const src=`assets/products/s-series/${sku}.png`;return `<article class="product-card has-image"><div class="product-visual" data-full="${src}" data-sku="${sku}" data-name="${name}" tabindex="0" role="button" aria-label="${c.view}: ${sku} ${name}"><img src="${src}" alt="${sku} ${name}" loading="lazy"><span class="view-full">${c.view}</span></div><div class="product-info"><div class="sku">${sku}</div><h3>${name}</h3><p class="product-benefit">${sBenefits[i]}</p><div class="state">${c.state}</div></div></article>`}return `<article class="product-card"><div class="sku">${sku}</div><h3>${name}</h3><div class="state">${c.state}</div></article>`}).join('');stage.innerHTML=`<div class="series-stage-head"><div class="series-label">VZ-${k} SERIES · ${p.count} SKUs</div><p class="series-description">${c.desc[si]}</p></div><div class="product-rail" id="panel-${k}" role="tabpanel" aria-labelledby="tab-${k}">${cards}</div>`;bindImagePreview();if(updateHash)history.replaceState(null,'',`#vz-${k.toLowerCase()}`)}
 function bindImagePreview(){document.querySelectorAll('.product-visual').forEach(el=>{const open=()=>openModal(el.dataset.full,`${el.dataset.sku} · ${el.dataset.name}`);el.addEventListener('click',open);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}})})}
 const modal=document.getElementById('image-modal'),modalImage=document.getElementById('modal-image'),modalCaption=document.getElementById('modal-caption');function openModal(src,caption){modalImage.src=src;modalImage.alt=caption;modalCaption.textContent=caption;modal.classList.add('open');document.body.style.overflow='hidden'}function closeModal(){modal.classList.remove('open');modalImage.src='';document.body.style.overflow=''}document.getElementById('modal-close').addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal()});
-const sel=document.getElementById('lang');let saved=localStorage.getItem('vayrenza-language');if(!copy[saved])saved='en';sel.value=saved;sel.addEventListener('change',()=>render(sel.value));window.addEventListener('hashchange',()=>{const k=keyFromHash();if(k)openSeries(k,sel.value,false)});render(saved);
+const sel=document.getElementById('lang');
+const supportedLangs=new Set(['en','es','fr','de','zh-CN','ja','ko']);
+let saved=window.__VZ_INITIAL_LANG__||localStorage.getItem('vayrenza-language')||'en';
+if(!supportedLangs.has(saved))saved='en';
+sel.value=saved;
+sel.addEventListener('change',()=>{
+  const lang=sel.value;
+  localStorage.setItem('vayrenza-language',lang);
+  if(copy[lang])render(lang);
+  else{document.documentElement.lang=lang;window.__VZ_PENDING_LANG__=lang;document.documentElement.classList.add('vz-i18n-pending')}
+});
+window.addEventListener('hashchange',()=>{const k=keyFromHash();if(k&&copy[sel.value])openSeries(k,sel.value,false)});
+if(copy[saved])render(saved);else{document.documentElement.lang=saved;localStorage.setItem('vayrenza-language',saved);window.__VZ_PENDING_LANG__=saved}
 </script>
 <script src="products-tools.js"></script>
 </body></html>
