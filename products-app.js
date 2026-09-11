@@ -125,7 +125,17 @@
     meta.textContent=c.results(found.length);
     results.innerHTML=found.length?found.map(x=>`<a class="product-search-result" href="#vz-${x.k.toLowerCase()}" data-series="${x.k}" data-sku="${x.sku}"><span class="r-sku">${x.sku}</span><span class="r-name">${escapeHtml(x.name)}</span><span class="r-series">VZ-${x.k}</span></a>`).join(''):`<div class="product-search-empty">${c.empty}</div>`;
   }
-  function openSearch(){ensureSearchOverlay();const overlay=document.querySelector('.product-search-overlay');overlay.classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>overlay.querySelector('.product-search-input').focus(),30);}
+  function resetSearch(){
+    const overlay=document.querySelector('.product-search-overlay');
+    if(!overlay)return;
+    const input=overlay.querySelector('.product-search-input');
+    const meta=overlay.querySelector('.product-search-meta');
+    const results=overlay.querySelector('.product-search-results');
+    if(input)input.value='';
+    if(meta)meta.textContent='';
+    if(results)results.innerHTML='';
+  }
+  function openSearch(){ensureSearchOverlay();const overlay=document.querySelector('.product-search-overlay');resetSearch();overlay.classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>overlay.querySelector('.product-search-input').focus(),30);}
   function closeSearch(){const overlay=document.querySelector('.product-search-overlay');if(!overlay)return;overlay.classList.remove('open');document.body.style.overflow='';}
   function focusProduct(key,sku){
     openSeries(key,true);
