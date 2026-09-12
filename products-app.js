@@ -21,11 +21,14 @@
   const modalCaption=document.getElementById('modal-caption');
   const modalClose=document.getElementById('modal-close');
   let activeKey=(location.hash.match(/^#vz-([stpk])$/i)?.[1]||'S').toUpperCase();
-  let searchTimer=null;
 
   const text=()=>I18N.copy[lang]||I18N.copy.en;
   const productNames=key=>I18N.names[lang]?.[key]||I18N.names.en[key];
   const homeHref=hash=>`index.html?lang=${encodeURIComponent(lang)}${hash||''}`;
+
+  function clearSearchTarget(){
+    document.querySelectorAll('.product-card.search-target').forEach(card=>card.classList.remove('search-target'));
+  }
 
   function renderHeader(){
     const c=text();
@@ -65,7 +68,7 @@
   function renderCollections(){
     const c=text();
     collections.innerHTML=`<div class="series-tabs" role="tablist">${DATA.order.map((k,i)=>`<button class="series-tab" id="tab-${k}" role="tab" aria-controls="panel-${k}" aria-selected="${activeKey===k}" data-series="${k}"><div class="series-index">0${i+1}</div><div class="series-code">${DATA.series[k].code} SERIES</div><h2 class="series-title">${c.series[i]}</h2><span class="series-count">${DATA.series[k].count} SKUs</span></button>`).join('')}</div><div class="series-stage" id="series-stage"></div>`;
-    collections.querySelectorAll('.series-tab').forEach(btn=>btn.addEventListener('click',()=>openSeries(btn.dataset.series,true)));
+    collections.querySelectorAll('.series-tab').forEach(btn=>btn.addEventListener('click',()=>{clearSearchTarget();openSeries(btn.dataset.series,true);}));
     openSeries(activeKey,false);
   }
 
@@ -83,7 +86,7 @@
   function bindProductImages(){
     document.querySelectorAll('.product-card.has-image').forEach(card=>{
       const visual=card.querySelector('.product-visual');
-      const open=()=>openModal(visual.dataset.full,`${visual.dataset.sku} · ${visual.dataset.name}`);
+      const open=()=>{clearSearchTarget();openModal(visual.dataset.full,`${visual.dataset.sku} · ${visual.dataset.name}`);};
       visual.addEventListener('click',open);
       visual.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}});
       card.querySelector('.product-info')?.addEventListener('click',open);
@@ -154,21 +157,23 @@
     if(meta)meta.textContent='';
     if(results)results.innerHTML='';
   }
-  function openSearch(){ensureSearchOverlay();const overlay=document.querySelector('.product-search-overlay');resetSearch();overlay.classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>overlay.querySelector('.product-search-input').focus(),30);}
+  function openSearch(){clearSearchTarget();ensureSearchOverlay();const overlay=document.querySelector('.product-search-overlay');resetSearch();overlay.classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>overlay.querySelector('.product-search-input').focus(),30);}
   function closeSearch(){const overlay=document.querySelector('.product-search-overlay');if(!overlay)return;overlay.classList.remove('open');document.body.style.overflow='';}
   function focusProduct(key,sku){
+    clearSearchTarget();
     openSeries(key,true);
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
       const rail=document.querySelector('.product-rail'),target=rail?.querySelector(`[data-sku="${CSS.escape(sku)}"]`);if(!rail||!target)return;
       document.getElementById('series-stage')?.scrollIntoView({behavior:'smooth',block:'start'});
       const rr=rail.getBoundingClientRect(),tr=target.getBoundingClientRect(),max=Math.max(0,rail.scrollWidth-rail.clientWidth);
       rail.scrollTo({left:Math.max(0,Math.min(max,rail.scrollLeft+(tr.left+tr.width/2)-(rr.left+rr.width/2))),behavior:'smooth'});
-      target.classList.add('search-target');clearTimeout(searchTimer);searchTimer=setTimeout(()=>target.classList.remove('search-target'),2800);
+      target.classList.add('search-target');
       setTimeout(()=>{const rr2=rail.getBoundingClientRect(),tr2=target.getBoundingClientRect();rail.scrollTo({left:Math.max(0,Math.min(max,rail.scrollLeft+(tr2.left+tr2.width/2)-(rr2.left+rr2.width/2))),behavior:'smooth'});},520);
     }));
   }
 
   function applyLanguage(next){
+    clearSearchTarget();
     if(!supported.has(next))next='en';
     lang=next;localStorage.setItem('vayrenza-language',lang);document.documentElement.lang=lang;renderAll();
   }
@@ -178,7 +183,7 @@
   function escapeAttr(s){return escapeHtml(s);}
 
   select.addEventListener('change',()=>applyLanguage(select.value));
-  window.addEventListener('hashchange',()=>{const k=location.hash.match(/^#vz-([stpk])$/i)?.[1]?.toUpperCase();if(k&&DATA.series[k])openSeries(k,false);});
+  window.addEventListener('hashchange',()=>{clearSearchTarget();const k=location.hash.match(/^#vz-([stpk])$/i)?.[1]?.toUpperCase();if(k&&DATA.series[k])openSeries(k,false);});
   modalClose.addEventListener('click',closeModal);modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeSearch();}});
 
   renderAll();
