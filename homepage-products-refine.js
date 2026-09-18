@@ -1,0 +1,1 @@
+(()=>{"use strict";if(!document.getElementById("vz-customer-value-copy")){const e=document.createElement("script");e.id="vz-customer-value-copy",e.src="customer-value-copy-v1.js",document.head.appendChild(e)}})();

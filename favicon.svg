@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VAYRENZA GLOBAL">
+  <rect width="64" height="64" rx="10" fill="#F3EFE7"/>
+  <path d="M12 15h8l12 31 12-31h8L36 53h-8L12 15Z" fill="#151411"/>
+  <path d="M27 15h7l-4 10h-7l4-10Z" fill="#B68145"/>
+  <path d="M18 56h28" stroke="#1F5A36" stroke-width="3" stroke-linecap="round"/>
+</svg>
